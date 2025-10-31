@@ -1,0 +1,27 @@
+@font-face {
+	font-family: "PP Radio Grotesk";
+	font-style: normal;
+	font-weight: medium;
+	src: url("../fonts/PPRadioGrotesk-Regular.woff2");
+}
+
+@font-face {
+	font-family: "PP Radio Grotesk";
+	font-style: italic;
+	font-weight: medium;
+	src: url("../fonts/PPRadioGrotesk-RegularItalic.woff2");
+}
+
+@font-face {
+	font-family: "PP Radio Grotesk";
+	font-style: normal;
+	font-weight: bold;
+	src: url("../fonts/PPRadioGrotesk-Bold.woff2");
+}
+
+@font-face {
+	font-family: "PP Radio Grotesk";
+	font-style: italic;
+	font-weight: bold;
+	src: url("../fonts/PPRadioGrotesk-BoldItalic.woff2");
+}
