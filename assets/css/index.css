@@ -6,6 +6,7 @@
 
 @import url("components/anchor.css");
 @import url("components/button.css");
+@import url("components/footer.css");
 @import url("components/header.css");
 @import url("components/link.css");
 @import url("components/note.css");
@@ -14,6 +15,8 @@
 	--header-height: 48px;
 	--scroll-padding-top: 24px;
 	--article-horizontal-padding: 16px;
+	--selection-background-color: var(--external-link-hover-color);
+	--selection-color: var(--text-color-light);
 
 	/* Light theme */
 	--primary-color-light: #f0f0f0;
@@ -44,6 +47,17 @@
 	--note-error-color-dark: #ffa198;
 	--note-info-color-dark: #40b4ff;
 	--note-warning-color-dark: #d4a238;
+}
+
+:focus-visible {
+	outline-color: var(--external-link-hover-color);
+	outline-offset: 2px;
+	outline-style: dashed;
+}
+
+::selection {
+	background-color: var(--selection-background-color);
+	color: var(--selection-color);
 }
 
 html {

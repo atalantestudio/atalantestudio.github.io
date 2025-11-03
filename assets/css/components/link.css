@@ -11,7 +11,7 @@ a:hover {
 	color: var(--external-link-color);
 }
 
-.link.link-external:hover {
+.link.link-external:hover, .link.link-external:focus {
 	color: var(--external-link-hover-color);
 	text-decoration: underline;
 	text-underline-offset: 3px;

@@ -1,0 +1,13 @@
+.footer {
+	margin-top: 16px;
+	padding: 16px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: var(--secondary-color);
+}
+
+@media screen and (min-width: 992px) {
+	.footer {
+		padding: 16px 0;
+	}
+}

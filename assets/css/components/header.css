@@ -1,4 +1,4 @@
-header {
+.header {
 	display: flex;
 	align-items: center;
 	height: var(--header-height);
@@ -9,11 +9,11 @@ header {
 	z-index: 1;
 }
 
-header .title {
+.header .title {
 	font-size: 1.25rem;
 }
 
-header nav {
+.header nav {
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
@@ -21,18 +21,18 @@ header nav {
 	flex-grow: 1;
 }
 
-header .color-theme-button {
+.header .color-theme-button {
 	padding: 1px 4px;
 	font-size: 0.8rem;
 }
 
-header .github-link {
+.header .github-link {
 	display: flex;
 	align-items: center;
 }
 
 @media screen and (min-width: 992px) {
-	header .title {
+	.header .title {
 		font-size: 1.5rem;
 	}
 }
