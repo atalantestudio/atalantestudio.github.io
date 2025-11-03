@@ -1,0 +1,12 @@
+:target {
+	animation-duration: 4s;
+	animation-fill-mode: forwards;
+	animation-name: targetBackgroundColorFadeOut;
+	animation-timing-function: ease-out;
+}
+
+@keyframes targetBackgroundColorFadeOut {
+	0% {
+		background-color: var(--target-background-color);
+	}
+}

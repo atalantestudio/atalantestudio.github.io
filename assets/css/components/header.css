@@ -1,8 +1,8 @@
 header {
 	display: flex;
 	align-items: center;
-	height: 48px;
-	top: 0px;
+	height: var(--header-height);
+	top: 0;
 	position: sticky;
 	box-shadow: 0 8px 16px var(--primary-color);
 	background-color: var(--primary-color);

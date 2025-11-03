@@ -26,6 +26,6 @@ export async function replaceIncludeElements(document) {
 
 		replaceIncludeElements(document);
 
-		includeElement.replaceWith(...document.body.children);
+		includeElement.replaceWith(...document.body.childNodes);
 	}
 }

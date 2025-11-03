@@ -1,0 +1,33 @@
+.anchor-link {
+	color: var(--secondary-color);
+	font-family: "Times New Roman", serif;
+	font-size: 0.85em;
+}
+
+.anchor-link {
+	float: right;
+	margin-left: 8px;
+	transition-duration: 0.2s;
+	transition-property: color;
+	transition-timing-function: ease-out;
+}
+
+@media screen and (min-width: 992px) {
+	.anchor {
+		position: relative;
+	}
+
+	.anchor-link {
+		padding: 0 8px;
+		right: 100%;
+		position: absolute;
+		opacity: 0;
+		transition-duration: 0.8s;
+		transition-property: opacity;
+	}
+
+	.anchor:hover .anchor-link {
+		opacity: 1;
+		transition-duration: 0.2s;
+	}
+}

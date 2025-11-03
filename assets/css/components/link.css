@@ -1,0 +1,18 @@
+a {
+	color: var(--text-color);
+	text-decoration: none;
+}
+
+a:hover {
+	color: var(--text-hover-color);
+}
+
+.link.link-external {
+	color: var(--external-link-color);
+}
+
+.link.link-external:hover {
+	color: var(--external-link-hover-color);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}

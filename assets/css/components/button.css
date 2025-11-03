@@ -1,0 +1,23 @@
+.button {
+	padding: 8px 16px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: var(--secondary-color);
+	background-color: transparent;
+	color: var(--text-color);
+	cursor: pointer;
+	font-family: "PP Radio Grotesk", "Arial", sans-serif;
+	font-size: 1em;
+	transition-duration: 0.2s;
+	transition-property: background-color, color;
+}
+
+.button:hover {
+	background-color: var(--link-hover-background-color);
+	color: var(--text-hover-color);
+}
+
+.button:focus {
+	border-color: var(--text-color);
+	color: var(--text-hover-color);
+}

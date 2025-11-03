@@ -1,17 +1,34 @@
-@import url("button.css");
 @import url("container.css");
 @import url("fonts.css");
+@import url("list.css");
+@import url("target.css");
 @import url("text.css");
 
+@import url("components/anchor.css");
+@import url("components/button.css");
 @import url("components/header.css");
+@import url("components/link.css");
+@import url("components/note.css");
 
 :root {
+	--header-height: 48px;
+	--scroll-padding-top: 24px;
+	--article-horizontal-padding: 16px;
+
 	/* Light theme */
 	--primary-color-light: #f0f0f0;
 	--secondary-color-light: #989898;
 	--tertiary-color-light: #c9c9c9;
 	--text-color-light: #0a0a0a;
 	--text-hover-color-light: #535353;
+	--link-border-color-light: #b2b2b2;
+	--link-hover-background-color-light: #d2d2d2;
+	--target-background-color-light: #f7e282;
+	--external-link-color-light: #4698ce;
+	--external-link-hover-color-light: #69bae9;
+	--note-error-color-light: #855651;
+	--note-info-color-light: #255f85;
+	--note-warning-color-light: #6f5621;
 
 	/* Dark theme */
 	--primary-color-dark: #0a0a0a;
@@ -19,12 +36,26 @@
 	--tertiary-color-dark: #535353;
 	--text-color-dark: #a5a5a5;
 	--text-hover-color-dark: #c2c2c2;
+	--link-border-color-dark: #3a3a3a;
+	--link-hover-background-color-dark: #1a1a1a;
+	--target-background-color-dark: #2e2709;
+	--external-link-color-dark: #5cafe7;
+	--external-link-hover-color-dark: #82cef9;
+	--note-error-color-dark: #ffa198;
+	--note-info-color-dark: #40b4ff;
+	--note-warning-color-dark: #d4a238;
+}
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: calc(var(--header-height) + var(--scroll-padding-top));
 }
 
 body {
 	margin: 0;
 	background-color: var(--primary-color);
 	color: var(--text-color);
+	word-wrap: break-word;
 	font-family: "PP Radio Grotesk", "Arial", sans-serif;
 	font-size: 1.1rem;
 }

@@ -6,6 +6,14 @@ const ColorProperty = {
 	TERTIARY: "tertiary-color",
 	TEXT: "text-color",
 	TEXT_HOVER: "text-hover-color",
+	LINK_BORDER_COLOR: "link-border-color",
+	LINK_HOVER_BACKGROUND_COLOR: "link-hover-background-color",
+	TARGET_BACKGROUND_COLOR: "target-background-color",
+	EXTERNAL_LINK_COLOR: "external-link-color",
+	EXTERNAL_LINK_HOVER_COLOR: "external-link-hover-color",
+	NOTE_ERROR_COLOR: "note-error-color",
+	NOTE_INFO_COLOR: "note-info-color",
+	NOTE_WARNING_COLOR: "note-warning-color",
 };
 
 const ColorThemeSuffix = [
