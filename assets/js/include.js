@@ -1,25 +1,31 @@
-export {};
+const DOCUMENT_PARSER = new DOMParser();
 
-const includeElements = document.querySelectorAll("include");
+/**
+ * @param {Document} document
+ */
+export async function replaceIncludeElements(document) {
+	const includeElements = document.querySelectorAll("include");
 
-for (const includeElement of includeElements) {
-	const url = includeElement.getAttribute("src");
+	for (const includeElement of includeElements) {
+		const includePath = includeElement.getAttribute("src");
 
-	if (!url) {
-		console.error("Could not find 'src' attribute in <include> element.");
+		if (!includePath) {
+			console.error("Could not find 'src' attribute in <include> element.");
 
-		continue;
+			continue;
+		}
+
+		const response = await fetch(includePath);
+
+		if (!response.ok) {
+			continue;
+		}
+
+		const text = await response.text();
+		const document = DOCUMENT_PARSER.parseFromString(text, "text/html");
+
+		replaceIncludeElements(document);
+
+		includeElement.replaceWith(...document.body.children);
 	}
-
-	const response = await fetch(url);
-
-	if (!response.ok) {
-		continue;
-	}
-
-	const text = await response.text();
-	const parser = new DOMParser();
-	const document = parser.parseFromString(text, "text/html");
-
-	includeElement.replaceWith(...document.body.children);
 }
