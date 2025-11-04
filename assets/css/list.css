@@ -12,6 +12,7 @@ ul {
 
 .list-item-link {
 	display: flex;
+	flex-direction: column;
 	padding: 16px;
 	border-color: var(--secondary-color);
 	border-style: solid;
