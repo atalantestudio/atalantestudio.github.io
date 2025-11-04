@@ -52,6 +52,22 @@
 	--note-error-color-dark: #ffa198;
 	--note-info-color-dark: #40b4ff;
 	--note-warning-color-dark: #d4a238;
+
+	/* Default theme */
+	--primary-color: var(--primary-color-light);
+	--secondary-color: var(--secondary-color-light);
+	--tertiary-color: var(--tertiary-color-light);
+	--text-color: var(--text-color-light);
+	--text-hover-color: var(--text-hover-color-light);
+	--link-border-color: var(--link-border-color-light);
+	--link-hover-background-color: var(--link-hover-background-color-light);
+	--target-background-color: var(--target-background-color-light);
+	--external-link-color: var(--external-link-color-light);
+	--external-link-hover-color: var(--external-link-hover-color-light);
+	--note-color: var(--note-color-light);
+	--note-error-color: var(--note-error-color-light);
+	--note-info-color: var(--note-info-color-light);
+	--note-warning-color: var(--note-warning-color-light);
 }
 
 :focus-visible {
