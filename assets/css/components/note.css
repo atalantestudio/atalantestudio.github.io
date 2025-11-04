@@ -1,9 +1,8 @@
 .note {
 	padding: 16px;
-	border-width: 1px;
-	border-style: solid;
 	border-color: var(--note-color);
-	border-left-width: 4px;
+	border-style: solid;
+	border-width: 1px 1px 1px 4px;
 	background-color: color-mix(in srgb, var(--note-color), transparent 85%);
 	color: var(--note-color);
 }
