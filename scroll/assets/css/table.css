@@ -1,0 +1,11 @@
+article table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+article table th, article table td {
+	padding: 8px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: var(--secondary-color);
+}

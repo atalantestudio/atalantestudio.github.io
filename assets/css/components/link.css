@@ -1,18 +1,18 @@
 a {
 	color: var(--text-color);
 	text-decoration: none;
+	text-underline-offset: 3px;
 }
 
 a:hover {
 	color: var(--text-hover-color);
 }
 
-.link.link-external {
+.link.link-external, article a:not(.anchor-link, .link-list-item a) {
 	color: var(--external-link-color);
 }
 
-.link.link-external:hover, .link.link-external:focus {
+.link.link-external:hover, .link.link-external:focus, article a:not(.anchor-link, .link-list-item a):hover, article a:not(.anchor-link, .link-list-item a):focus {
 	color: var(--external-link-hover-color);
 	text-decoration: underline;
-	text-underline-offset: 3px;
 }

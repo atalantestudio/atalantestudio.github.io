@@ -1,5 +1,9 @@
 blockquote {
 	margin-left: 0;
+	margin-right: 0;
+}
+
+blockquote:not(.note) {
 	padding-left: 16px;
 	border-left-color: var(--secondary-color);
 	border-left-style: solid;

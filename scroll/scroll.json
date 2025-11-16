@@ -1,0 +1,294 @@
+{
+	"repositoryUrl": "https://github.com/atalantestudio/scroll",
+	"releases": [
+		{
+			"tag": "v1.0.0",
+			"commitHash": "1234"
+		}
+	],
+	"declarations": [
+		{
+			"name": "getArgumentInjectionPattern",
+			"parentAnchor": "Logger",
+			"description": "Returns the current [argument injection pattern](#Argument injection pattern).",
+			"overloads": [
+				{
+					"releaseIndex": 0,
+					"syntax": "static view<char8> Logger::getArgumentInjectionPattern()",
+					"filePath": "Logger/Logger.hpp",
+					"line": 0
+				}
+			]
+		},
+		{
+			"name": "setArgumentInjectionPattern",
+			"parentAnchor": "Logger",
+			"description": "Replaces the current [argument injection pattern](#Argument injection pattern) with `pattern`. This operation affects all active and future Logger instances.",
+			"overloads": [
+				{
+					"releaseIndex": 0,
+					"syntax": "static void Logger::setArgumentInjectionPattern(view<char8> pattern)",
+					"filePath": "Logger/Logger.hpp",
+					"line": 0
+				}
+			]
+		},
+		{
+			"name": "format",
+			"parentAnchor": "Logger",
+			"description": "Returns a string containing the formatted argument(s).",
+			"overloads": [
+				{
+					"releaseIndex": 0,
+					"syntax": "template<typename Argument>\nstatic sequence<char8> Logger::format(Argument&& argument)",
+					"filePath": "Logger/Logger.hpp",
+					"line": 0
+				},
+				{
+					"releaseIndex": 0,
+					"syntax": "template<typename Argument, typename... PackedArgument>\nstatic sequence<char8> Logger::format(view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
+					"description": "Uses the [argument injection patterns](#Argument injection pattern) found in `pattern` to inject each formatted argument at the right position. If there are more arguments than injection patterns, the remaining arguments are silently discarded.",
+					"filePath": "Logger/Logger.hpp",
+					"line": 0
+				}
+			]
+		},
+		{
+			"name": "timestamp",
+			"parentAnchor": "Logger",
+			"description": "Returns a formatted string representing the current timestamp, with precision to the millisecond. The timestamp follows the format `%H:%M:%S.{%MS:0<3}`.",
+			"overloads": [
+				{
+					"releaseIndex": 0,
+					"syntax": "static sequence<char8> Logger::timestamp()",
+					"filePath": "Logger/Logger.hpp",
+					"line": 0
+				}
+			]
+		},
+		{
+			"name": "ConsoleLogger",
+			"description": "Constructs a new ConsoleLogger.",
+			"overloads": [
+				{
+					"releaseIndex": 0,
+					"syntax": "explicit ConsoleLogger::ConsoleLogger(std::ostream& stream, LogLevel logLevel, view<char8> source)",
+					"filePath": "ConsoleLogger/ConsoleLogger.hpp",
+					"line": 0
+				}
+			]
+		},
+		{
+			"name": "trace",
+			"parentAnchor": "ConsoleLogger",
+			"description": "Writes a trace log to the console output stream. `file` and `line` appear in a stack trace inserted after the log message.",
+			"overloads": [
+				{
+					"releaseIndex": 0,
+					"syntax": "template<typename Argument>\nvoid ConsoleLogger::trace(view<char8> file, uint32 line, Argument&& argument)",
+					"filePath": "ConsoleLogger/ConsoleLogger.hpp",
+					"line": 0
+				},
+				{
+					"releaseIndex": 0,
+					"syntax": "template<typename Argument, typename... PackedArgument>\nvoid ConsoleLogger::trace(view<char8> file, uint32 line, view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
+					"description": "See [format](#Logger-format).",
+					"filePath": "ConsoleLogger/ConsoleLogger.hpp",
+					"line": 0
+				}
+			]
+		},
+		{
+			"name": "debug",
+			"parentAnchor": "ConsoleLogger",
+			"description": "Writes a debug log to the console output stream.",
+			"overloads": [
+				{
+					"releaseIndex": 0,
+					"syntax": "template<typename Argument>\nvoid ConsoleLogger::debug(Argument&& argument)",
+					"filePath": "ConsoleLogger/ConsoleLogger.hpp",
+					"line": 0
+				},
+				{
+					"releaseIndex": 0,
+					"syntax": "template<typename Argument, typename... PackedArgument>\nvoid ConsoleLogger::debug(view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
+					"description": "See [format](#Logger-format).",
+					"filePath": "ConsoleLogger/ConsoleLogger.hpp",
+					"line": 0
+				}
+			]
+		},
+		{
+			"name": "info",
+			"parentAnchor": "ConsoleLogger",
+			"description": "Writes an information log to the console output stream.",
+			"overloads": [
+				{
+					"releaseIndex": 0,
+					"syntax": "template<typename Argument>\nvoid ConsoleLogger::info(Argument&& argument)",
+					"filePath": "ConsoleLogger/ConsoleLogger.hpp",
+					"line": 0
+				},
+				{
+					"releaseIndex": 0,
+					"syntax": "template<typename Argument, typename... PackedArgument>\nvoid ConsoleLogger::info(view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
+					"description": "See [format](#Logger-format).",
+					"filePath": "ConsoleLogger/ConsoleLogger.hpp",
+					"line": 0
+				}
+			]
+		},
+		{
+			"name": "warning",
+			"parentAnchor": "ConsoleLogger",
+			"description": "Writes a warning log to the console output stream.",
+			"overloads": [
+				{
+					"releaseIndex": 0,
+					"syntax": "template<typename Argument>\nvoid ConsoleLogger::warning(Argument&& argument)",
+					"filePath": "ConsoleLogger/ConsoleLogger.hpp",
+					"line": 0
+				},
+				{
+					"releaseIndex": 0,
+					"syntax": "template<typename Argument, typename... PackedArgument>\nvoid ConsoleLogger::warning(view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
+					"description": "See [format](#Logger-format).",
+					"filePath": "ConsoleLogger/ConsoleLogger.hpp",
+					"line": 0
+				}
+			]
+		},
+		{
+			"name": "error",
+			"parentAnchor": "ConsoleLogger",
+			"description": "Writes an error log to the console output stream. `function`, `file` and `line` appear in a stack trace inserted after the log message.",
+			"overloads": [
+				{
+					"releaseIndex": 0,
+					"syntax": "template<typename Argument>\nvoid ConsoleLogger::info(view<char8> function, view<char8> file, uint32 line, Argument&& argument)",
+					"filePath": "ConsoleLogger/ConsoleLogger.hpp",
+					"line": 0
+				},
+				{
+					"releaseIndex": 0,
+					"syntax": "template<typename Argument, typename... PackedArgument>\nvoid ConsoleLogger::info(view<char8> function, view<char8> file, uint32 line, view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
+					"description": "See [format](#Logger-format).",
+					"filePath": "ConsoleLogger/ConsoleLogger.hpp",
+					"line": 0
+				}
+			]
+		},
+		{
+			"name": "FileLogger",
+			"description": "Constructs a new FileLogger.",
+			"overloads": [
+				{
+					"releaseIndex": 0,
+					"syntax": "explicit FileLogger::FileLogger(std::ofstream& stream, LogLevel logLevel, view<char8> source)",
+					"filePath": "FileLogger/FileLogger.hpp",
+					"line": 0
+				}
+			]
+		},
+		{
+			"name": "trace",
+			"parentAnchor": "FileLogger",
+			"description": "Writes a trace log to the file output stream. `file` and `line` appear in a stack trace inserted after the log message.",
+			"overloads": [
+				{
+					"releaseIndex": 0,
+					"syntax": "template<typename Argument>\nvoid FileLogger::trace(view<char8> file, uint32 line, Argument&& argument)",
+					"filePath": "FileLogger/FileLogger.hpp",
+					"line": 0
+				},
+				{
+					"releaseIndex": 0,
+					"syntax": "template<typename Argument, typename... PackedArgument>\nvoid FileLogger::trace(view<char8> file, uint32 line, view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
+					"description": "See [format](#Logger-format).",
+					"filePath": "FileLogger/FileLogger.hpp",
+					"line": 0
+				}
+			]
+		},
+		{
+			"name": "debug",
+			"parentAnchor": "FileLogger",
+			"description": "Writes a debug log to the file output stream.",
+			"overloads": [
+				{
+					"releaseIndex": 0,
+					"syntax": "template<typename Argument>\nvoid FileLogger::debug(Argument&& argument)",
+					"filePath": "FileLogger/FileLogger.hpp",
+					"line": 0
+				},
+				{
+					"releaseIndex": 0,
+					"syntax": "template<typename Argument, typename... PackedArgument>\nvoid FileLogger::debug(view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
+					"description": "See [format](#Logger-format).",
+					"filePath": "FileLogger/FileLogger.hpp",
+					"line": 0
+				}
+			]
+		},
+		{
+			"name": "info",
+			"parentAnchor": "FileLogger",
+			"description": "Writes an information log to the file output stream.",
+			"overloads": [
+				{
+					"releaseIndex": 0,
+					"syntax": "template<typename Argument>\nvoid FileLogger::info(Argument&& argument)",
+					"filePath": "FileLogger/FileLogger.hpp",
+					"line": 0
+				},
+				{
+					"releaseIndex": 0,
+					"syntax": "template<typename Argument, typename... PackedArgument>\nvoid FileLogger::info(view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
+					"description": "See [format](#Logger-format).",
+					"filePath": "FileLogger/FileLogger.hpp",
+					"line": 0
+				}
+			]
+		},
+		{
+			"name": "warning",
+			"parentAnchor": "FileLogger",
+			"description": "Writes a warning log to the file output stream.",
+			"overloads": [
+				{
+					"releaseIndex": 0,
+					"syntax": "template<typename Argument>\nvoid FileLogger::warning(Argument&& argument)",
+					"filePath": "FileLogger/FileLogger.hpp",
+					"line": 0
+				},
+				{
+					"releaseIndex": 0,
+					"syntax": "template<typename Argument, typename... PackedArgument>\nvoid FileLogger::warning(view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
+					"description": "See [format](#Logger-format).",
+					"filePath": "FileLogger/FileLogger.hpp",
+					"line": 0
+				}
+			]
+		},
+		{
+			"name": "error",
+			"parentAnchor": "FileLogger",
+			"description": "Writes an error log to the file output stream. `function`, `file` and `line` appear in a stack trace inserted after the log message.",
+			"overloads": [
+				{
+					"releaseIndex": 0,
+					"syntax": "template<typename Argument>\nvoid FileLogger::info(view<char8> function, view<char8> file, uint32 line, Argument&& argument)",
+					"filePath": "FileLogger/FileLogger.hpp",
+					"line": 0
+				},
+				{
+					"releaseIndex": 0,
+					"syntax": "template<typename Argument, typename... PackedArgument>\nvoid FileLogger::info(view<char8> function, view<char8> file, uint32 line, view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
+					"description": "See [format](#Logger-format).",
+					"filePath": "FileLogger/FileLogger.hpp",
+					"line": 0
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,4 @@
+[submodule "vendor/showdown"]
+	path = vendor/showdown
+	url = https://github.com/showdownjs/showdown
+	branch = master

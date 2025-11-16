@@ -17,10 +17,15 @@
 	display: flex;
 	align-items: center;
 	column-gap: 4px;
+	font-size: 1.25rem;
 }
 
-.header .title {
-	display: none;
+.header .title-container :last-child {
+	font-weight: bold;
+}
+
+.header .title-container :last-child:hover, .header .title-container :last-child:hover {
+	text-decoration: underline;
 }
 
 .header nav {
@@ -34,6 +39,12 @@
 .header .color-theme-button {
 	padding: 1px 4px;
 	font-size: 0.8rem;
+	border: none;
+	background: transparent;
+	color: var(--text-color);
+	cursor: pointer;
+	font-family: "PP Radio Grotesk", "Arial", sans-serif;
+	font-style: italic;
 }
 
 .header .github-link {
@@ -42,8 +53,7 @@
 }
 
 @media screen and (min-width: 992px) {
-	.header .title {
-		display: block;
+	.header .title-container {
 		font-size: 1.5rem;
 	}
 }

@@ -1,21 +1,28 @@
 const COLOR_THEME_STORAGE_KEY = "atalante.github.io:color-theme";
 
-const ColorProperty = {
-	PRIMARY: "primary-color",
-	SECONDARY: "secondary-color",
-	TERTIARY: "tertiary-color",
-	TEXT: "text-color",
-	TEXT_HOVER: "text-hover-color",
-	LINK_BORDER_COLOR: "link-border-color",
-	LINK_HOVER_BACKGROUND_COLOR: "link-hover-background-color",
-	TARGET_BACKGROUND_COLOR: "target-background-color",
-	EXTERNAL_LINK_COLOR: "external-link-color",
-	EXTERNAL_LINK_HOVER_COLOR: "external-link-hover-color",
-	NOTE_COLOR: "note-color",
-	NOTE_ERROR_COLOR: "note-error-color",
-	NOTE_INFO_COLOR: "note-info-color",
-	NOTE_WARNING_COLOR: "note-warning-color",
-};
+const ThemeProperties = [
+	"primary-color",
+	"secondary-color",
+	"tertiary-color",
+	"text-color",
+	"text-hover-color",
+	"link-border-color",
+	"link-hover-background-color",
+	"target-background-color",
+	"external-link-color",
+	"external-link-hover-color",
+	"note-color",
+	"note-error-color",
+	"note-info-color",
+	"note-warning-color",
+	"highlight-color",
+	"highlight-class-color",
+	"highlight-function-color",
+	"highlight-keyword-color",
+	"highlight-namespace-color",
+	"highlight-operator-color",
+	"highlight-type-color",
+];
 
 const ColorThemeSuffix = [
 	"light",
@@ -57,7 +64,7 @@ export function updateColorTheme() {
 	const style = getComputedStyle(document.documentElement);
 	const suffix = ColorThemeSuffix[colorTheme];
 
-	for (const property of Object.values(ColorProperty)) {
+	for (const property of ThemeProperties) {
 		const value = style.getPropertyValue(`--${property}-${suffix}`);
 
 		document.documentElement.style.setProperty(`--${property}`, value);

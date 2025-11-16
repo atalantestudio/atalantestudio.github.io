@@ -1,0 +1,44 @@
+code[class*="log"] {
+	display: block;
+	padding: 8px;
+	overflow-x: auto;
+	background-color: var(--code-background-color);
+	color: var(--code-color);
+}
+
+code[class~="log:console"] .timestamp {
+	color: var(--log-timestamp-color);
+}
+
+code[class~="log:console"] .level-label-trace {
+	background-color: var(--log-trace-color);
+	color: var(--black);
+}
+
+code[class~="log:console"] .level-label-debug {
+	background-color: var(--log-debug-color);
+	color: var(--black);
+}
+
+code[class~="log:console"] .level-label-info {
+	background-color: var(--log-info-color);
+	color: var(--black);
+}
+
+code[class~="log:console"] .level-label-warning {
+	background-color: var(--log-warning-color);
+	color: var(--black);
+}
+
+code[class~="log:console"] .level-label-error {
+	background-color: var(--log-error-color);
+	color: var(--black);
+}
+
+code[class~="log:console"] .level-label-warning + .log {
+	color: var(--log-warning-color);
+}
+
+code[class~="log:console"] .level-label-error + .log {
+	color: var(--log-error-color);
+}

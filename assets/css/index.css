@@ -9,10 +9,13 @@
 @import url("components/footer.css");
 @import url("components/header.css");
 @import url("components/link.css");
+@import url("components/list.css");
 @import url("components/note.css");
 
 @import url("default/blockquote.css");
+@import url("default/code.css");
 @import url("default/hr.css");
+@import url("default/svg.css");
 
 :root {
 	--header-height: 48px;
@@ -20,6 +23,17 @@
 	--article-horizontal-padding: 16px;
 	--selection-background-color: var(--external-link-hover-color);
 	--selection-color: var(--text-color-light);
+	--code-background-color: #0f0f0f;
+	--code-color: #e0e0e0;
+
+	--black: #000000;
+
+	--log-timestamp-color: #5e787e;
+	--log-trace-color: #ffffff;
+	--log-debug-color: #b1bac4;
+	--log-info-color: #79c0ff;
+	--log-warning-color: #e3b341;
+	--log-error-color: #ffa198;
 
 	/* Light theme */
 	--primary-color-light: #f0f0f0;
@@ -36,6 +50,13 @@
 	--note-error-color-light: #855651;
 	--note-info-color-light: #255f85;
 	--note-warning-color-light: #6f5621;
+	--highlight-color-light: #0a0a0a;
+	--highlight-keyword-color-light: #cf222e;
+	--highlight-class-color-light: #953800;
+	--highlight-function-color-light: #8250df;
+	--highlight-namespace-color-light: #953800;
+	--highlight-operator-color-light: #cf222e;
+	--highlight-type-color-light: #cf222e;
 
 	/* Dark theme */
 	--primary-color-dark: #0a0a0a;
@@ -52,6 +73,13 @@
 	--note-error-color-dark: #ffa198;
 	--note-info-color-dark: #40b4ff;
 	--note-warning-color-dark: #d4a238;
+	--highlight-color-dark: #d2d2d2;
+	--highlight-keyword-color-dark: #ff7b72;
+	--highlight-class-color-dark: #ffa657;
+	--highlight-function-color-dark: #d2a8ff;
+	--highlight-namespace-color-dark: #ffa657;
+	--highlight-operator-color-dark: #ff7b72;
+	--highlight-type-color-dark: #ff7b72;
 
 	/* Default theme */
 	--primary-color: var(--primary-color-light);
@@ -68,6 +96,13 @@
 	--note-error-color: var(--note-error-color-light);
 	--note-info-color: var(--note-info-color-light);
 	--note-warning-color: var(--note-warning-color-light);
+	--highlight-color: var(--highlight-color-light);
+	--highlight-keyword-color: var(--highlight-keyword-color-light);
+	--highlight-class-color: var(--highlight-class-color-light);
+	--highlight-function-color: var(--highlight-function-color-light);
+	--highlight-namespace-color: var(--highlight-namespace-color-light);
+	--highlight-operator-color: var(--highlight-operator-color-light);
+	--highlight-type-color: var(--highlight-type-color-light);
 }
 
 :focus-visible {
