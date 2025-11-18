@@ -1,4 +1,4 @@
-code[class*="log"] {
+pre > code {
 	display: block;
 	padding: 8px;
 	overflow-x: auto;
@@ -6,39 +6,43 @@ code[class*="log"] {
 	color: var(--code-color);
 }
 
-code[class~="log:console"] .timestamp {
+.language-log-console .timestamp {
 	color: var(--log-timestamp-color);
 }
 
-code[class~="log:console"] .level-label-trace {
+.language-log-console .source {
+	color: var(--code-color);
+}
+
+.language-log-console .level-trace {
 	background-color: var(--log-trace-color);
 	color: var(--black);
 }
 
-code[class~="log:console"] .level-label-debug {
+.language-log-console .level-debug {
 	background-color: var(--log-debug-color);
 	color: var(--black);
 }
 
-code[class~="log:console"] .level-label-info {
+.language-log-console .level-info {
 	background-color: var(--log-info-color);
 	color: var(--black);
 }
 
-code[class~="log:console"] .level-label-warning {
+.language-log-console .level-warning {
 	background-color: var(--log-warning-color);
 	color: var(--black);
 }
 
-code[class~="log:console"] .level-label-error {
+.language-log-console .level-error {
 	background-color: var(--log-error-color);
 	color: var(--black);
 }
 
-code[class~="log:console"] .level-label-warning + .log {
+.language-log-console .log:has(.level-warning) {
 	color: var(--log-warning-color);
 }
 
-code[class~="log:console"] .level-label-error + .log {
+.language-log-console .log:has(.level-error) {
 	color: var(--log-error-color);
 }

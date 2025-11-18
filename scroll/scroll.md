@@ -1,33 +1,64 @@
 # Scroll Documentation
 
-Scroll is a fast and lightweight C++ library for console and file logging. [View repository](https://github.com/atalantestudio/scroll)
+[View repository](https://github.com/atalantestudio/scroll)
 
-Below is a code example that writes one log of each level to the console.
+Scroll is a fast and lightweight C++ library that supports [console](#ConsoleLogger) and [file](#FileLogger) logging. Below is a code example that writes one log of each level to the console.
 
 ```cpp
-void writeLogs() {
-    std::ofstream stream("path/to/file.log");
+void writeConsoleLogs() {
+    ConsoleLogger logger(std::cout, LogLevel::ALL, "EXAMPLE");
 
-    FileLogger logger(stream, LogLevel::ALL, "SOURCE");
-
-    logger.trace(__FILE__, __LINE__, "Testing [] [] []...", 1, 2, 3);
-    logger.debug("Testing [] [] []...", 1, 2, 3);
-    logger.info("Testing [] [] []...", 1, 2, 3);
-    logger.warning("Testing [] [] []...", 1, 2, 3);
-    logger.error(__func__, __FILE__, __LINE__, "Testing [] [] []...", 1, 2, 3);
+    logger.trace(__FILE__, __LINE__, "This is a trace log: [] []", "hello", 1);
+    logger.debug("This log doesn't contain any formatted arguments.");
+    logger.info("The \"[]\" log level provides useful information to the application developer.", "INFO");
+    logger.warning("This issue is notable, but not critical.");
+    logger.error(__func__, __FILE__, __LINE__, "Most important log level.\nIt is usually sent before application crashes or other similar emergencies.");
 }
 ```
 
+This produces the output below:
+
+```log:console
+[12:34:56.789] EXAMPLE  TRACE  This is a trace log: hello 1
+                               at path/to/file:4
+[12:34:56.789] EXAMPLE  DEBUG  This debug log doesn't contain any formatted arguments.
+[12:34:56.789] EXAMPLE  INFO  The "INFO" log level provides useful information to the application developer.
+[12:34:56.789] EXAMPLE  WARNING  This should be fixed. In the meantime, the application can continue to operate.
+[12:34:56.789] EXAMPLE  ERROR  Most critical log level.
+                               It is usually sent before application crashes or other similar emergencies.
+                               at writeConsoleLogs (path/to/file:8)
+```
+
+The file logging API only differs in the way the logger is constructed.
+
+## Installing
+
+When inside your project directory, run
+
+```sh
+git clone git@github.com:atalantestudio/scroll --recurse-submodules
+```
+
+This will install the latest version of Scroll. It will also initialize the [ModuleBase](https://github.com/atalantestudio/ModuleBase) submodule, which serves as the foundation for all Atalante modules.
+
+Define the `USER_NAMESPACE` macro with your project's namespace, then include `scroll/scroll.hpp`. You will then be able to access Scroll's definitions under the provided namespace.
+
+Scroll uses the following custom types for string handling:
+
+- `sequence<char8>` is a sequence of 8-bit characters allocated on the heap. Unlike [`std::string`](https://en.cppreference.com/w/cpp/string/basic_string.html), it is not resizeable.
+  A sequence can be constructed from a C-style string or C++ string, and can also be converted to a C++ string via a [conversion operator](https://github.com/atalantestudio/ModuleBase/blob/0c524315d1f0afc3850385b1150a40501c9c6363/Base/Types/sequence.hpp#L55).  
+  Sequences should be passed by reference to avoid unnecessary copies.
+- `view<char8>` is a non-owning view of a sequence of characters, like [`std::string_view`](https://en.cppreference.com/w/cpp/string/basic_string_view.html).  
+  Views should be passed by value.
+
 ## Log
 
-A log is a message carrying information about an application's runtime status, intended for the application developer.
+A log is a message carrying information about an application's runtime status, intended for the application developer. Logs usually contain a timestamp, a log level and a text message.
 
-Logs usually contain a timestamp, a log level and a text message.
-
-### Levels
+### Level
 
 Each log is associated with a log level, i.e. a way to represent the severity of the log.  
-Scroll defines 5 log levels and 2 aliases in the [LogLevel](#) enum.
+Scroll defines 5 log levels and 2 aliases in the [LogLevel](https://github.com/atalantestudio/scroll/blob) enum.
 
 | Level | Stream | Description |
 | -- | -- | -- |
@@ -39,15 +70,15 @@ Scroll defines 5 log levels and 2 aliases in the [LogLevel](#) enum.
 | `ERROR` | [`std::cerr`](https://en.cppreference.com/w/cpp/io/cerr.html) | Enable logs with a level greater than or equal to `ERROR`. |
 | `NONE` | | Disable all logs (alias for `ERROR`). |
 
-> [!WARNING]
-> A logger will ignore any attempt to write a log with a level below the configured minimum level.
+> [!WARNING] A logger will ignore any attempt to write a log with a level below the configured minimum level.
 
-### Sources
+### Source
 
-Scroll allows developers to associate a source to a [Logger](#Logger) object.
-The source is a fast way of checking a log's origin without reading the full message.
+A [Logger](#Logger) can be configured with a *source string*, which is a fast way of checking a log's origin without reading the full message.
 
 The source is located between the timestamp and the log level.
+
+> [!INFO] The source isn't owned by the library and must instead be managed by the user.
 
 ### Argument injection pattern
 
@@ -55,88 +86,216 @@ This pattern is used to detect where to insert formatted arguments into a string
 
 By default, the argument injection pattern is `[]`. It can be replaced using [setArgumentInjectionPattern](#Logger-setArgumentInjectionPattern), but it cannot be changed on a per-logger basis.
 
-> [!ERROR]
-> Note that the argument injection pattern isn't owned by the library, and its memory must instead be managed by the user.
+> [!INFO] The argument injection pattern isn't owned by the library, and must instead be managed by the user.
+
+
 
 ***
+
+
 
 ## Logger
 
 The base from which [ConsoleLogger](#ConsoleLogger) and [FileLogger](#FileLogger) extend. It is not constructible, but it can be extended by the user to write a new logger implementation.
 
-### getMinLogLevel
+### Logger-getArgumentInjectionPattern
 
-Returns a [LogLevel](#LogLevel) representing the minimum log level used by this logger.
+Returns the current [argument injection pattern](#Argument%20injection%20pattern).
 
-### getSource
+> [!INFO] This function returns a pointer to a block of memory managed by the user.
 
-Returns the source string used by this logger.
+<!-- Logger-getArgumentInjectionPattern -->
 
-> [!INFO]
-> The source isn't owned by the Logger class. This function returns a pointer to a block of memory managed by the user.
+### Logger-setArgumentInjectionPattern
+
+Sets `pattern` as the current [argument injection pattern](#Argument%20injection%20pattern). This operation affects all Logger objects.
+
+<!-- Logger-setArgumentInjectionPattern -->
+
+### Logger-format
+
+Returns a string containing the formatted argument(s).
+
+<!-- Logger-format -->
+
+### Logger-timestamp
+
+Returns a formatted string representing the current timestamp, with millisecond precision. The timestamp follows the format `%H:%M:%S.%N`, where
+- `%H` is the 24 hour clock (00-23)
+- `%M` is the minute (00-59)
+- `%S` is the second (00-59)
+- `%N` is the millisecond (000-999)
+
+<!-- Logger-timestamp -->
+
+### Logger-getMinLogLevel
+
+Returns a [LogLevel](#Level) representing the minimum log level configured for this logger.
+
+<!-- Logger-getMinLogLevel -->
+
+### Logger-getSource
+
+Returns the [source](#Source) string used by this logger.
+
+> [!INFO] This function returns a pointer to a block of memory managed by the user.
+
+<!-- Logger-getSource -->
+
+
 
 ***
+
+
 
 ## ConsoleLogger
 
-An extension of [Logger](#Logger) that writes logs to a console output stream.
+An extension of [Logger](#Logger) that writes text and logs to a console output stream.
 
-1. For the argument type `Argument`, the overload `Logger& operator<<(Logger&, const Argument&)` **must** be defined.
-2. For each argument type `Argument`, the overload `Logger& operator<<(Logger&, const Argument&)` **must** be defined.
+### ConsoleLogger-ConsoleLogger
 
-```cpp
-void writeLogs() {
-    std::ofstream stream("path/to/file.log");
+Constructs a new ConsoleLogger.
 
-    FileLogger logger(stream, LogLevel::ALL, "SOURCE");
+<!-- ConsoleLogger-ConsoleLogger -->
 
-    logger.trace(__FILE__, __LINE__, "Testing [] [] []...", 1, 2, 3);
-    logger.debug("Testing [] [] []...", 1, 2, 3);
-    logger.info("Testing [] [] []...", 1, 2, 3);
-    logger.warning("Testing [] [] []...", 1, 2, 3);
-    logger.error(__func__, __FILE__, __LINE__, "Testing [] [] []...", 1, 2, 3);
-}
-```
+### ConsoleLogger-~ConsoleLogger
 
-Examples:
+Destroys a ConsoleLogger object. This ends the current [SGR control sequence](https://en.wikipedia.org/wiki/ANSI_escape_code#Select_Graphic_Rendition_parameters), if there is one.
 
-```log:console
-[12:34:56.789]  TRACE  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                       at path/to/file:1
-[12:34:56.789]  DEBUG  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-[12:34:56.789]  INFO  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-[12:34:56.789]  WARNING  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-[12:34:56.789]  ERROR  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                       at main (path/to/file:1)
-```
+<!-- ConsoleLogger-~ConsoleLogger -->
 
-## FileLogger
+### ConsoleLogger-getOutputStream
 
-An extension of [Logger](#Logger) that writes logs to a file.
+Returns the current output stream used for text writing.
 
-> [!NOTE]
-> 
-> `stream` **must** already be open.
+<!-- ConsoleLogger-getOutputStream -->
 
-1. For the argument type `Argument`, the overload `Logger& operator<<(Logger&, const Argument&)` **must** be defined.
-2. For each argument type `Argument`, the overload `Logger& operator<<(Logger&, const Argument&)` **must** be defined.
+### ConsoleLogger-setOutputStream
 
-Example:
+Sets `stream` as the current output stream for text writing.
 
-```log
-[12:34:56.789] TRACE Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                     at path/to/file:1
-[12:34:56.789] DEBUG Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-[12:34:56.789] INFO Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-[12:34:56.789] WARNING Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-[12:34:56.789] ERROR Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                     at main (path/to/file:1)
-```
+> [!INFO] Note that each log level has a predefined stream and will **not** use the current output stream.
 
-***
+<!-- ConsoleLogger-setOutputStream -->
+
+### ConsoleLogger-operator<<
+
+Writes `argument` to the current output stream.
+
+Returns a reference to the logger.
+
+<!-- ConsoleLogger-operator<< -->
+
+### ConsoleLogger-padLeft
+
+Sets `padding` as the [width parameter](https://en.cppreference.com/w/cpp/io/manip/setw.html) of the current output stream and sets the [fill character positioning](https://en.cppreference.com/w/cpp/io/manip/left.html) to the left.
+
+Returns a reference to the logger.
+
+<!-- ConsoleLogger-padLeft -->
+
+### ConsoleLogger-padRight
+
+Sets `padding` as the [width parameter](https://en.cppreference.com/w/cpp/io/manip/setw.html) of the current output stream and sets the [fill character positioning](https://en.cppreference.com/w/cpp/io/manip/left.html) to the right.
+
+Returns a reference to the logger.
+
+<!-- ConsoleLogger-padRight -->
+
+### ConsoleLogger-trace
+
+Writes a trace log to the console output stream. `file` and `line` appear in a stack trace inserted after the log message.
+
+See also [format](#Logger-format).
 
 <!-- ConsoleLogger-trace -->
 
-Writes a trace log to the console output stream. See [format](#Logger-format) for the argument formatting.
+### ConsoleLogger-debug
 
-`file` and `line` appear in a stack trace inserted after the log message.
+Writes a debug log to the console output stream.
+
+See also [format](#Logger-format).
+
+<!-- ConsoleLogger-debug -->
+
+### ConsoleLogger-info
+
+Writes an information log to the console output stream.
+
+See also [format](#Logger-format).
+
+<!-- ConsoleLogger-info -->
+
+### ConsoleLogger-warning
+
+Writes a warning log to the console output stream.
+
+See also [format](#Logger-format).
+
+<!-- ConsoleLogger-warning -->
+
+### ConsoleLogger-error
+
+Writes an error log to the console output stream. `function`, `file` and `line` appear in a stack trace inserted after the log message.
+
+See also [format](#Logger-format).
+
+<!-- ConsoleLogger-error -->
+
+
+
+***
+
+
+
+## FileLogger
+
+An extension of [Logger](#Logger) that writes logs to a file output stream.
+
+### FileLogger-FileLogger
+
+Constructs a new FileLogger.
+
+> [!ERROR] `stream` **must** be in the open state.
+
+<!-- FileLogger-FileLogger -->
+
+### FileLogger-trace
+
+Writes a trace log to the file output stream. `file` and `line` appear in a stack trace inserted after the log message.
+
+See also [format](#Logger-format).
+
+<!-- FileLogger-trace -->
+
+### FileLogger-debug
+
+Writes a debug log to the file output stream.
+
+See also [format](#Logger-format).
+
+<!-- FileLogger-debug -->
+
+### FileLogger-info
+
+Writes an information log to the file output stream.
+
+See also [format](#Logger-format).
+
+<!-- FileLogger-info -->
+
+### FileLogger-warning
+
+Writes a warning log to the file output stream.
+
+See also [format](#Logger-format).
+
+<!-- FileLogger-warning -->
+
+### FileLogger-error
+
+Writes an error log to the file output stream. `function`, `file` and `line` appear in a stack trace inserted after the log message.
+
+See also [format](#Logger-format).
+
+<!-- FileLogger-error -->

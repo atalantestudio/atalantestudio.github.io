@@ -10,32 +10,70 @@
 	white-space: nowrap;
 }
 
-.overload-syntax .class {
+pre > code {
+	--highlight-color: var(--highlight-color-dark);
+	--highlight-class-color: var(--highlight-class-color-dark);
+	--highlight-comment-color: var(--highlight-comment-color-dark);
+	--highlight-escape-color: var(--highlight-type-color-dark);
+	--highlight-function-color: var(--highlight-function-color-dark);
+	--highlight-keyword-color: var(--highlight-keyword-color-dark);
+	--highlight-macro-color: var(--highlight-macro-color-dark);
+	--highlight-namespace-color: var(--highlight-namespace-color-dark);
+	--highlight-number-color: var(--highlight-number-color-dark);
+	--highlight-operator-color: var(--highlight-operator-color-dark);
+	--highlight-string-color: var(--highlight-string-color-dark);
+	--highlight-type-color: var(--highlight-type-color-dark);
+}
+
+code .class {
 	color: var(--highlight-class-color);
 }
 
-.overload-syntax .function {
+code .comment {
+	color: var(--highlight-comment-color);
+}
+
+code .escape {
+	color: var(--highlight-escape-color);
+}
+
+code .function {
 	color: var(--highlight-function-color);
 }
 
-.overload-syntax .keyword {
+code .keyword {
 	color: var(--highlight-keyword-color);
 }
 
-.overload-syntax .namespace {
+code .macro {
+	color: var(--highlight-macro-color);
+}
+
+code .namespace {
 	color: var(--highlight-namespace-color);
 }
 
-.overload-syntax .operator {
+code .number {
+	color: var(--highlight-number-color);
+}
+
+code .operator {
 	color: var(--highlight-operator-color);
 }
 
-.overload-syntax .type {
+code .string {
+	color: var(--highlight-string-color);
+}
+
+code .type {
 	color: var(--highlight-type-color);
 }
 
-.overload-description {
+.overload-list-item p {
 	order: 2;
+}
+
+.overload-list-item :last-child {
 	margin-bottom: 0;
 }
 

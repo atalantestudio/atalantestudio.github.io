@@ -17,16 +17,8 @@ export {};
  */
 
 /**
- * @typedef {Object} DocumentationDeclaration
- * @property {String} name
- * @property {?String} parentAnchor
- * @property {String} description
- * @property {DocumentationDeclarationOverload[]} overloads
- */
-
-/**
  * @typedef {Object} Documentation
  * @property {String} repositoryUrl
  * @property {DocumentationRelease[]} releases
- * @property {DocumentationDeclaration[]} declarations
+ * @property {Record<String, DocumentationDeclarationOverload[]>} declarations
  */

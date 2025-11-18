@@ -5,4 +5,5 @@ code {
 
 pre:has(> code) {
 	overflow-x: auto;
+	tab-size: 4;
 }

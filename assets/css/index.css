@@ -51,11 +51,15 @@
 	--note-info-color-light: #255f85;
 	--note-warning-color-light: #6f5621;
 	--highlight-color-light: #0a0a0a;
-	--highlight-keyword-color-light: #cf222e;
 	--highlight-class-color-light: #953800;
+	--highlight-comment-color-light: #6a737d;
 	--highlight-function-color-light: #8250df;
+	--highlight-keyword-color-light: #cf222e;
+	--highlight-macro-color-light: #8250df;
 	--highlight-namespace-color-light: #953800;
+	--highlight-number-color-light: #005cc5;
 	--highlight-operator-color-light: #cf222e;
+	--highlight-string-color-light: #032f62;
 	--highlight-type-color-light: #cf222e;
 
 	/* Dark theme */
@@ -74,11 +78,15 @@
 	--note-info-color-dark: #40b4ff;
 	--note-warning-color-dark: #d4a238;
 	--highlight-color-dark: #d2d2d2;
-	--highlight-keyword-color-dark: #ff7b72;
 	--highlight-class-color-dark: #ffa657;
+	--highlight-comment-color-dark: #8b949e;
 	--highlight-function-color-dark: #d2a8ff;
+	--highlight-keyword-color-dark: #ff7b72;
+	--highlight-macro-color-dark: #d2a8ff;
 	--highlight-namespace-color-dark: #ffa657;
+	--highlight-number-color-dark: #79c0ff;
 	--highlight-operator-color-dark: #ff7b72;
+	--highlight-string-color-dark: #a5d6ff;
 	--highlight-type-color-dark: #ff7b72;
 
 	/* Default theme */
@@ -97,11 +105,15 @@
 	--note-info-color: var(--note-info-color-light);
 	--note-warning-color: var(--note-warning-color-light);
 	--highlight-color: var(--highlight-color-light);
-	--highlight-keyword-color: var(--highlight-keyword-color-light);
 	--highlight-class-color: var(--highlight-class-color-light);
+	--highlight-comment-color: var(--highlight-comment-color-dark);
 	--highlight-function-color: var(--highlight-function-color-light);
+	--highlight-keyword-color: var(--highlight-keyword-color-light);
+	--highlight-macro-color: var(--highlight-macro-color-light);
 	--highlight-namespace-color: var(--highlight-namespace-color-light);
+	--highlight-number-color: var(--highlight-number-color-light);
 	--highlight-operator-color: var(--highlight-operator-color-light);
+	--highlight-string-color: var(--highlight-string-color-light);
 	--highlight-type-color: var(--highlight-type-color-light);
 }
 

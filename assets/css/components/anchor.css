@@ -12,6 +12,12 @@
 	transition-timing-function: ease-out;
 }
 
+.anchor-prefix {
+	color: var(--secondary-color);
+	font-weight: normal;
+	font-size: 0.9em;
+}
+
 @media screen and (min-width: 992px) {
 	.anchor {
 		position: relative;
