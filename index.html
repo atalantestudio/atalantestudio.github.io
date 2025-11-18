@@ -13,8 +13,6 @@
 		<meta property="og:site_name" content="Atalante" />
 		<meta property="og:title" content="Home – Atalante" />
 
-		<base href="." />
-
 		<link rel="icon" type="image/png" href="assets/images/icons/atalante.png" />
 
 		<link rel="stylesheet" type="text/css" href="assets/css/index.css" />
@@ -33,13 +31,9 @@
 					</a>
 				</span>
 
-				<nav>
-					<button class="color-theme-button"></button>
-
-					<a href="https://github.com/atalantestudio/atalantestudio.github.io" title="GitHub" class="github-link">
-						<include src="assets/images/icons/github.svg"></include>
-					</a>
-				</nav>
+				<a href="https://github.com/atalantestudio/atalantestudio.github.io" title="GitHub" class="github-link">
+					<include src="assets/images/icons/github.svg"></include>
+				</a>
 			</div>
 		</header>
 
@@ -83,8 +77,37 @@
 			</ul>
 		</article>
 
-		<footer class="footer container">
-			Footer
+		<footer class="footer">
+			<div class="container">
+				<div class="color-theme-container">
+					<button class="light-theme-button theme-button">
+						Light
+					</button>
+
+					<button class="dark-theme-button theme-button">
+						Dark
+					</button>
+				</div>
+
+				<ul class="container-list">
+					<li>
+						<a href="" class="link link-external">
+							Home
+						</a>
+					</li>
+
+					<li>
+						<a href="legal" class="link link-external">
+							Legal
+						</a>
+					</li>
+				</ul>
+
+				<span class="copyright">
+					Copyright 2025 Atalante.<br />
+					Licensed under <a href="https://github.com/atalantestudio/atalantestudio.github.io/blob/3d253d8b7cb74fce20939dadac97bc04ffc71d29/LICENSE" class="link link-external">MIT</a>.
+				</span>
+			</div>
 		</footer>
 	</body>
 </html>

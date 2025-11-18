@@ -1,0 +1,33 @@
+.color-theme-container {
+	display: flex;
+}
+
+.theme-button {
+	border-width: 1px;
+	border-style: solid;
+	border-color: var(--secondary-color);
+}
+
+.theme-button:focus {
+	border-color: var(--border-color);
+}
+
+.light-theme-button {
+	border-right-width: 0;
+	background-color: var(--primary-color-light);
+	color: var(--text-color-light);
+}
+
+.light-theme-button:focus {
+	color: var(--text-hover-color-light);
+}
+
+.dark-theme-button {
+	border-left-width: 0;
+	background-color: var(--primary-color-dark);
+	color: var(--text-color-dark);
+}
+
+.dark-theme-button:focus {
+	color: var(--text-hover-color-dark);
+}

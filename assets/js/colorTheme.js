@@ -29,37 +29,34 @@ const ColorThemeSuffix = [
 	"dark",
 ];
 
-const ColorTheme = {
+/**
+ * @enum {Number}
+ */
+export const ColorTheme = {
 	LIGHT: 0,
 	DARK: 1,
 };
 
-function getColorTheme() {
+export function getCurrentColorTheme() {
 	const colorThemeValue = localStorage.getItem(COLOR_THEME_STORAGE_KEY);
 
 	if (!colorThemeValue) {
 		return ColorTheme.LIGHT;
 	}
 
-	return Number(colorThemeValue);
+	/**
+	 * @type {ColorTheme}
+	 */
+	const colorTheme = Number(colorThemeValue);
+
+	return colorTheme;
 }
 
 /**
- * @param {Number} colorTheme
+ * @param {ColorTheme} colorTheme
  */
-function setColorTheme(colorTheme) {
+export function setColorTheme(colorTheme) {
 	localStorage.setItem(COLOR_THEME_STORAGE_KEY, colorTheme.toString());
-}
-
-export function changeColorTheme() {
-	const colorTheme = Number(!getColorTheme());
-
-	setColorTheme(colorTheme);
-	updateColorTheme();
-}
-
-export function updateColorTheme() {
-	const colorTheme = getColorTheme();
 
 	const style = getComputedStyle(document.documentElement);
 	const suffix = ColorThemeSuffix[colorTheme];
@@ -68,18 +65,5 @@ export function updateColorTheme() {
 		const value = style.getPropertyValue(`--${property}-${suffix}`);
 
 		document.documentElement.style.setProperty(`--${property}`, value);
-	}
-
-	const button = document.querySelector("header .color-theme-button");
-
-	if (!button) {
-		return;
-	}
-
-	if (colorTheme == ColorTheme.LIGHT) {
-		button.textContent = "Light Mode";
-	}
-	else {
-		button.textContent = "Dark Mode";
 	}
 }

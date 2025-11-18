@@ -1,13 +1,18 @@
-.footer {
-	margin-top: 16px;
+.footer .container {
+	display: flex;
+	flex-direction: column;
 	padding: 16px;
-	border-top-color: var(--secondary-color);
-	border-top-style: solid;
 	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: var(--secondary-color);
 }
 
 @media screen and (min-width: 992px) {
-	.footer {
+	.footer .container {
 		padding: 16px 0;
+	}
+
+	.copyright {
+		text-align: right;
 	}
 }

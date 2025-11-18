@@ -9,6 +9,7 @@
 
 .header .container {
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
 	height: 100%;
 }
@@ -26,25 +27,6 @@
 
 .header .title-container :last-child:hover, .header .title-container :last-child:hover {
 	text-decoration: underline;
-}
-
-.header nav {
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
-	column-gap: 8px;
-	flex-grow: 1;
-}
-
-.header .color-theme-button {
-	padding: 1px 4px;
-	font-size: 0.8rem;
-	border: none;
-	background: transparent;
-	color: var(--text-color);
-	cursor: pointer;
-	font-family: "PP Radio Grotesk", "Arial", sans-serif;
-	font-style: italic;
 }
 
 .header .github-link {

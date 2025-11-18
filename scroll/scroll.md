@@ -1,6 +1,6 @@
 # Scroll Documentation
 
-[View repository](https://github.com/atalantestudio/scroll)
+[GitHub repository](https://github.com/atalantestudio/scroll)
 
 Scroll is a fast and lightweight C++ library that supports [console](#ConsoleLogger) and [file](#FileLogger) logging. Below is a code example that writes one log of each level to the console.
 
@@ -86,7 +86,7 @@ This pattern is used to detect where to insert formatted arguments into a string
 
 By default, the argument injection pattern is `[]`. It can be replaced using [setArgumentInjectionPattern](#Logger-setArgumentInjectionPattern), but it cannot be changed on a per-logger basis.
 
-> [!INFO] The argument injection pattern isn't owned by the library, and must instead be managed by the user.
+> [!INFO] The argument injection pattern isn't owned by the library and must instead be managed by the user.
 
 
 
