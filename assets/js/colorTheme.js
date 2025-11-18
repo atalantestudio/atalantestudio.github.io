@@ -1,4 +1,4 @@
-const COLOR_THEME_STORAGE_KEY = "atalante.github.io:color-theme";
+const COLOR_THEME_STORAGE_KEY = "atalantestudio.github.io:color-theme";
 
 const ThemeProperties = [
 	"primary-color",
