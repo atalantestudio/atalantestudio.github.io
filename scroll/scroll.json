@@ -3,7 +3,7 @@
 	"releases": [
 		{
 			"tag": "v1.0.0",
-			"commitHash": "1234"
+			"commitHash": "e640473205ac07f7326bb2f8a4aa0789e1fbea82"
 		}
 	],
 	"declarations": {
@@ -11,16 +11,16 @@
 			{
 				"releaseIndex": 0,
 				"syntax": "static view<char8> Logger::getArgumentInjectionPattern()",
-				"filePath": "Logger/Logger.hpp",
-				"line": 0
+				"filePath": "scroll/Logger/Logger.hpp",
+				"line": 12
 			}
 		],
 		"Logger-setArgumentInjectionPattern": [
 			{
 				"releaseIndex": 0,
 				"syntax": "static void Logger::setArgumentInjectionPattern(view<char8> pattern)",
-				"filePath": "Logger/Logger.hpp",
-				"line": 0
+				"filePath": "scroll/Logger/Logger.hpp",
+				"line": 15
 			}
 		],
 		"Logger-format": [
@@ -28,71 +28,71 @@
 				"releaseIndex": 0,
 				"syntax": "template<typename Argument>\nstatic sequence<char8> Logger::format(Argument&& argument)",
 				"description": "For the `Argument` template parameter, the overload `Logger& operator<<(Logger&, const Argument&)` **must** be defined.",
-				"filePath": "Logger/Logger.hpp",
-				"line": 0
+				"filePath": "scroll/Logger/Logger.hpp",
+				"line": 18
 			},
 			{
 				"releaseIndex": 0,
 				"syntax": "template<typename Argument, typename... PackedArgument>\nstatic sequence<char8> Logger::format(view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
 				"description": "Uses the [argument injection patterns](#Argument injection pattern) found in `pattern` to inject each formatted argument at the right position. If there are more arguments than injection patterns, the remaining arguments are silently discarded.\n\nFor the `Argument` template parameter, the overload `Logger& operator<<(Logger&, const Argument&)` **must** be defined.\nAdditionally, for each unique `PackedArgument` template parameter different than `Argument`, the overload `Logger& operator<<(Logger&, const PackedArgument&)` **must** be defined.",
-				"filePath": "Logger/Logger.hpp",
-				"line": 0
+				"filePath": "scroll/Logger/Logger.hpp",
+				"line": 21
 			}
 		],
 		"Logger-timestamp": [
 			{
 				"releaseIndex": 0,
 				"syntax": "static sequence<char8> Logger::timestamp()",
-				"filePath": "Logger/Logger.hpp",
-				"line": 0
+				"filePath": "scroll/Logger/Logger.hpp",
+				"line": 23
 			}
 		],
 		"Logger-getMinLogLevel": [
 			{
 				"releaseIndex": 0,
 				"syntax": "LogLevel Logger::getMinLogLevel() const",
-				"filePath": "Logger/Logger.hpp",
-				"line": 0
+				"filePath": "scroll/Logger/Logger.hpp",
+				"line": 36
 			}
 		],
 		"Logger-getSource": [
 			{
 				"releaseIndex": 0,
 				"syntax": "view<char8> Logger::getSource() const",
-				"filePath": "Logger/Logger.hpp",
-				"line": 0
+				"filePath": "scroll/Logger/Logger.hpp",
+				"line": 38
 			}
 		],
 		"ConsoleLogger-ConsoleLogger": [
 			{
 				"releaseIndex": 0,
 				"syntax": "explicit ConsoleLogger::ConsoleLogger(std::ostream& stream, LogLevel minLogLevel, view<char8> source)",
-				"filePath": "ConsoleLogger/ConsoleLogger.hpp",
-				"line": 0
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
+				"line": 16
 			}
 		],
 		"ConsoleLogger-~ConsoleLogger": [
 			{
 				"releaseIndex": 0,
 				"syntax": "ConsoleLogger::~ConsoleLogger()",
-				"filePath": "ConsoleLogger/ConsoleLogger.hpp",
-				"line": 0
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
+				"line": 18
 			}
 		],
 		"ConsoleLogger-getOutputStream": [
 			{
 				"releaseIndex": 0,
 				"syntax": "std::ostream& ConsoleLogger::getOutputStream()",
-				"filePath": "ConsoleLogger/ConsoleLogger.hpp",
-				"line": 0
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
+				"line": 20
 			}
 		],
 		"ConsoleLogger-setOutputStream": [
 			{
 				"releaseIndex": 0,
 				"syntax": "void ConsoleLogger::setOutputStream(std::ostream& stream)",
-				"filePath": "ConsoleLogger/ConsoleLogger.hpp",
-				"line": 0
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
+				"line": 22
 			}
 		],
 		"ConsoleLogger-operator<<": [
@@ -100,179 +100,179 @@
 				"releaseIndex": 0,
 				"syntax": "template<typename Argument>\nConsoleLogger& ConsoleLogger::operator<<(Argument&& argument)",
 				"description": "Ends the current [SGR control sequence](https://en.wikipedia.org/wiki/ANSI_escape_code#Select_Graphic_Rendition_parameters), if there is one.",
-				"filePath": "ConsoleLogger/ConsoleLogger.hpp",
-				"line": 0
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
+				"line": 25
 			},
 			{
 				"releaseIndex": 0,
 				"syntax": "template<>\nConsoleLogger& ConsoleLogger::operator<<(ConsoleEscapeCode&& argument)",
 				"description": "Begins or continues an [SGR control sequence](https://en.wikipedia.org/wiki/ANSI_escape_code#Select_Graphic_Rendition_parameters).",
-				"filePath": "ConsoleLogger/ConsoleLogger.hpp",
-				"line": 0
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
+				"line": 28
 			}
 		],
 		"ConsoleLogger-padLeft": [
 			{
 				"releaseIndex": 0,
 				"syntax": "ConsoleLogger& ConsoleLogger::padLeft(uint64 padding)",
-				"filePath": "ConsoleLogger/ConsoleLogger.hpp",
-				"line": 0
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
+				"line": 30
 			}
 		],
 		"ConsoleLogger-padRight": [
 			{
 				"releaseIndex": 0,
 				"syntax": "ConsoleLogger& ConsoleLogger::padRight(uint64 padding)",
-				"filePath": "ConsoleLogger/ConsoleLogger.hpp",
-				"line": 0
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
+				"line": 32
 			}
 		],
 		"ConsoleLogger-trace": [
 			{
 				"releaseIndex": 0,
 				"syntax": "template<typename Argument>\nvoid ConsoleLogger::trace(view<char8> file, uint32 line, Argument&& argument)",
-				"filePath": "ConsoleLogger/ConsoleLogger.hpp",
-				"line": 0
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
+				"line": 35
 			},
 			{
 				"releaseIndex": 0,
 				"syntax": "template<typename Argument, typename... PackedArgument>\nvoid ConsoleLogger::trace(view<char8> file, uint32 line, view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
-				"filePath": "ConsoleLogger/ConsoleLogger.hpp",
-				"line": 0
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
+				"line": 38
 			}
 		],
 		"ConsoleLogger-debug": [
 			{
 				"releaseIndex": 0,
 				"syntax": "template<typename Argument>\nvoid ConsoleLogger::debug(Argument&& argument)",
-				"filePath": "ConsoleLogger/ConsoleLogger.hpp",
-				"line": 0
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
+				"line": 41
 			},
 			{
 				"releaseIndex": 0,
 				"syntax": "template<typename Argument, typename... PackedArgument>\nvoid ConsoleLogger::debug(view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
-				"filePath": "ConsoleLogger/ConsoleLogger.hpp",
-				"line": 0
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
+				"line": 44
 			}
 		],
 		"ConsoleLogger-info": [
 			{
 				"releaseIndex": 0,
 				"syntax": "template<typename Argument>\nvoid ConsoleLogger::info(Argument&& argument)",
-				"filePath": "ConsoleLogger/ConsoleLogger.hpp",
-				"line": 0
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
+				"line": 47
 			},
 			{
 				"releaseIndex": 0,
 				"syntax": "template<typename Argument, typename... PackedArgument>\nvoid ConsoleLogger::info(view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
-				"filePath": "ConsoleLogger/ConsoleLogger.hpp",
-				"line": 0
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
+				"line": 50
 			}
 		],
 		"ConsoleLogger-warning": [
 			{
 				"releaseIndex": 0,
 				"syntax": "template<typename Argument>\nvoid ConsoleLogger::warning(Argument&& argument)",
-				"filePath": "ConsoleLogger/ConsoleLogger.hpp",
-				"line": 0
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
+				"line": 53
 			},
 			{
 				"releaseIndex": 0,
 				"syntax": "template<typename Argument, typename... PackedArgument>\nvoid ConsoleLogger::warning(view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
-				"filePath": "ConsoleLogger/ConsoleLogger.hpp",
-				"line": 0
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
+				"line": 56
 			}
 		],
 		"ConsoleLogger-error": [
 			{
 				"releaseIndex": 0,
-				"syntax": "template<typename Argument>\nvoid ConsoleLogger::info(view<char8> function, view<char8> file, uint32 line, Argument&& argument)",
-				"filePath": "ConsoleLogger/ConsoleLogger.hpp",
-				"line": 0
+				"syntax": "template<typename Argument>\nvoid ConsoleLogger::error(view<char8> function, view<char8> file, uint32 line, Argument&& argument)",
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
+				"line": 59
 			},
 			{
 				"releaseIndex": 0,
-				"syntax": "template<typename Argument, typename... PackedArgument>\nvoid ConsoleLogger::info(view<char8> function, view<char8> file, uint32 line, view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
-				"filePath": "ConsoleLogger/ConsoleLogger.hpp",
-				"line": 0
+				"syntax": "template<typename Argument, typename... PackedArgument>\nvoid ConsoleLogger::error(view<char8> function, view<char8> file, uint32 line, view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
+				"line": 62
 			}
 		],
 		"FileLogger-FileLogger": [
 			{
 				"releaseIndex": 0,
 				"syntax": "explicit FileLogger::FileLogger(std::ofstream& stream, LogLevel minLogLevel, view<char8> source)",
-				"filePath": "FileLogger/FileLogger.hpp",
-				"line": 0
+				"filePath": "scroll/FileLogger/FileLogger.hpp",
+				"line": 12
 			}
 		],
 		"FileLogger-trace": [
 			{
 				"releaseIndex": 0,
 				"syntax": "template<typename Argument>\nvoid FileLogger::trace(view<char8> file, uint32 line, Argument&& argument)",
-				"filePath": "FileLogger/FileLogger.hpp",
-				"line": 0
+				"filePath": "scroll/FileLogger/FileLogger.hpp",
+				"line": 15
 			},
 			{
 				"releaseIndex": 0,
 				"syntax": "template<typename Argument, typename... PackedArgument>\nvoid FileLogger::trace(view<char8> file, uint32 line, view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
-				"filePath": "FileLogger/FileLogger.hpp",
-				"line": 0
+				"filePath": "scroll/FileLogger/FileLogger.hpp",
+				"line": 18
 			}
 		],
 		"FileLogger-debug": [
 			{
 				"releaseIndex": 0,
 				"syntax": "template<typename Argument>\nvoid FileLogger::debug(Argument&& argument)",
-				"filePath": "FileLogger/FileLogger.hpp",
-				"line": 0
+				"filePath": "scroll/FileLogger/FileLogger.hpp",
+				"line": 21
 			},
 			{
 				"releaseIndex": 0,
 				"syntax": "template<typename Argument, typename... PackedArgument>\nvoid FileLogger::debug(view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
-				"filePath": "FileLogger/FileLogger.hpp",
-				"line": 0
+				"filePath": "scroll/FileLogger/FileLogger.hpp",
+				"line": 24
 			}
 		],
 		"FileLogger-info": [
 			{
 				"releaseIndex": 0,
 				"syntax": "template<typename Argument>\nvoid FileLogger::info(Argument&& argument)",
-				"filePath": "FileLogger/FileLogger.hpp",
-				"line": 0
+				"filePath": "scroll/FileLogger/FileLogger.hpp",
+				"line": 27
 			},
 			{
 				"releaseIndex": 0,
 				"syntax": "template<typename Argument, typename... PackedArgument>\nvoid FileLogger::info(view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
-				"filePath": "FileLogger/FileLogger.hpp",
-				"line": 0
+				"filePath": "scroll/FileLogger/FileLogger.hpp",
+				"line": 30
 			}
 		],
 		"FileLogger-warning": [
 			{
 				"releaseIndex": 0,
 				"syntax": "template<typename Argument>\nvoid FileLogger::warning(Argument&& argument)",
-				"filePath": "FileLogger/FileLogger.hpp",
-				"line": 0
+				"filePath": "scroll/FileLogger/FileLogger.hpp",
+				"line": 33
 			},
 			{
 				"releaseIndex": 0,
 				"syntax": "template<typename Argument, typename... PackedArgument>\nvoid FileLogger::warning(view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
-				"filePath": "FileLogger/FileLogger.hpp",
-				"line": 0
+				"filePath": "scroll/FileLogger/FileLogger.hpp",
+				"line": 36
 			}
 		],
 		"FileLogger-error": [
 			{
 				"releaseIndex": 0,
-				"syntax": "template<typename Argument>\nvoid FileLogger::info(view<char8> function, view<char8> file, uint32 line, Argument&& argument)",
-				"filePath": "FileLogger/FileLogger.hpp",
-				"line": 0
+				"syntax": "template<typename Argument>\nvoid FileLogger::error(view<char8> function, view<char8> file, uint32 line, Argument&& argument)",
+				"filePath": "scroll/FileLogger/FileLogger.hpp",
+				"line": 39
 			},
 			{
 				"releaseIndex": 0,
-				"syntax": "template<typename Argument, typename... PackedArgument>\nvoid FileLogger::info(view<char8> function, view<char8> file, uint32 line, view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
-				"filePath": "FileLogger/FileLogger.hpp",
-				"line": 0
+				"syntax": "template<typename Argument, typename... PackedArgument>\nvoid FileLogger::error(view<char8> function, view<char8> file, uint32 line, view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
+				"filePath": "scroll/FileLogger/FileLogger.hpp",
+				"line": 42
 			}
 		]
 	}

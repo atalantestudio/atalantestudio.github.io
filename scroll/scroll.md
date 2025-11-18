@@ -58,7 +58,7 @@ A log is a message carrying information about an application's runtime status, i
 ### Level
 
 Each log is associated with a log level, i.e. a way to represent the severity of the log.  
-Scroll defines 5 log levels and 2 aliases in the [LogLevel](https://github.com/atalantestudio/scroll/blob) enum.
+Scroll defines 5 log levels and 2 aliases in the [LogLevel](https://github.com/atalantestudio/scroll/blob/e640473205ac07f7326bb2f8a4aa0789e1fbea82/scroll/LogLevel.hpp#L12) enum.
 
 | Level | Stream | Description |
 | -- | -- | -- |
