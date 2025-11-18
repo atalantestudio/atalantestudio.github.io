@@ -1,6 +1,6 @@
 # Scroll Documentation
 
-[GitHub repository](https://github.com/atalantestudio/scroll)
+[View GitHub repository](https://github.com/atalantestudio/scroll)
 
 Scroll is a fast and lightweight C++ library that supports [console](#ConsoleLogger) and [file](#FileLogger) logging. Below is a code example that writes one log of each level to the console.
 

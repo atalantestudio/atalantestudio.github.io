@@ -6,6 +6,8 @@
 	border-width: 1px;
 	border-style: solid;
 	border-color: var(--secondary-color);
+	transition-duration: 0.2s;
+	transition-property: background-color, color;
 }
 
 .theme-button:focus {
@@ -18,7 +20,8 @@
 	color: var(--text-color-light);
 }
 
-.light-theme-button:focus {
+.light-theme-button:hover, .light-theme-button:focus {
+	background-color: var(--link-hover-background-color-light);
 	color: var(--text-hover-color-light);
 }
 
@@ -28,6 +31,7 @@
 	color: var(--text-color-dark);
 }
 
-.dark-theme-button:focus {
+.dark-theme-button:hover, .dark-theme-button:focus {
+	background-color: var(--link-hover-background-color-dark);
 	color: var(--text-hover-color-dark);
 }
