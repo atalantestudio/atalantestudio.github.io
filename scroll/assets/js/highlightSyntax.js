@@ -9,6 +9,7 @@ export function highlightSyntax(syntax) {
 	syntax = syntax.replace(/(\~?\w+\b)(?=\()/, `<span class="function">$1</span>`);
 	syntax = syntax.replace(/(&{1,2})/g, "<span class='operator'>$1</span>");
 	syntax = syntax.replace(/(?<!\S)\b([A-Z]\w*?)\b(?!\()/g, "<span class='namespace'>$1</span>");
+	syntax = syntax.replace(/\b(\w+)(?=::)/g, "<span class='namespace'>$1</span>");
 	syntax = syntax.replace(/\b(\w+)(?=(<{1,2}[^/<]))/g, "<span class='namespace'>$1</span>");
 
 	return syntax;
@@ -20,9 +21,12 @@ export function highlightSyntax(syntax) {
 export function highlightLanguageCpp(code) {
 	code = code.replaceAll("    ", "\t");
 
-	code = code.replace(/(?<=void\s+)(\w+)(?=\()/g, "<span class='function'>$1</span>");
+	code = code.replace(/\<(.*?)\>/g, "<span class='string'>&lt;$1&gt;</span>");
+	code = code.replace(/\b(return)/g, "<span class='keyword'>$1</span>");
+	code = code.replace(/(#include)\b/g, "<span class='keyword'>$1</span>");
+	code = code.replace(/(?<=(?:int|void)\s+)(\w+)(?=\()/g, "<span class='function'>$1</span>");
 	code = code.replace(/(?<=\.)(\w+)(?=\()/g, "<span class='function'>$1</span>");
-	code = code.replace(/\b(void)\b/g, "<span class='type'>$1</span>");
+	code = code.replace(/\b(int|void)\b/g, "<span class='type'>$1</span>");
 	code = code.replace(/(?<=::)([A-Z]+)\b/g, "<span class='string'>$1</span>");
 	code = code.replace(/(\\.)/g, "<span class='escape'>$1</span>");
 	code = code.replace(/(".*?[^\\]")/g, "<span class='string'>$1</span>");

@@ -2,31 +2,37 @@
 
 [View GitHub repository](https://github.com/atalantestudio/scroll)
 
-Scroll is a fast and lightweight C++ library that supports [console](#ConsoleLogger) and [file](#FileLogger) logging. Below is a code example that writes one log of each level to the console.
+Scroll is a fast and lightweight C++ library that supports [console](#ConsoleLogger) and [file](#FileLogger) logging. It is licensed under [LGPL](https://github.com/atalantestudio/scroll/tree/main/LICENSE).
+
+Below is a minimal example that writes one log of each level to the console.
 
 ```cpp
-void writeConsoleLogs() {
-    ConsoleLogger logger(std::cout, LogLevel::ALL, "EXAMPLE");
+#include <scroll/scroll.hpp>
 
-    logger.trace(__FILE__, __LINE__, "This is a trace log: [] []", "hello", 1);
-    logger.debug("This log doesn't contain any formatted arguments.");
-    logger.info("The \"[]\" log level provides useful information to the application developer.", "INFO");
-    logger.warning("This issue is notable, but not critical.");
-    logger.error(__func__, __FILE__, __LINE__, "Most important log level.\nIt is usually sent before application crashes or other similar emergencies.");
+int main() {
+	scroll::ConsoleLogger logger(std::cout, scroll::LogLevel::ALL, "EXAMPLE");
+
+	logger.trace(__FILE__, __LINE__, "This is a trace log: [] []", "hello", 1);
+	logger.debug("This log doesn't contain any formatted arguments.");
+	logger.info("The \"[]\" log level provides useful information to the application developer.", "INFO");
+	logger.warning("This issue is notable, but not critical.");
+	logger.error(__func__, __FILE__, __LINE__, "Most important log level.\nIt is usually sent before application crashes or other similar emergencies.");
+
+	return 0;
 }
 ```
 
 This produces the output below:
 
 ```log:console
-[12:34:56.789] EXAMPLE  TRACE  This is a trace log: hello 1
-                               at path/to/file:4
-[12:34:56.789] EXAMPLE  DEBUG  This debug log doesn't contain any formatted arguments.
-[12:34:56.789] EXAMPLE  INFO  The "INFO" log level provides useful information to the application developer.
-[12:34:56.789] EXAMPLE  WARNING  This should be fixed. In the meantime, the application can continue to operate.
-[12:34:56.789] EXAMPLE  ERROR  Most critical log level.
+[21:06:40.082] EXAMPLE  TRACE  This is a trace log: hello 1
+                               at path/to/file:6
+[21:06:40.085] EXAMPLE  DEBUG  This log doesn't contain any formatted arguments.
+[21:06:40.086] EXAMPLE  INFO  The "INFO" log level provides useful information to the application developer.
+[21:06:40.086] EXAMPLE  WARNING  This issue is notable, but not critical.
+[21:06:40.087] EXAMPLE  ERROR  Most important log level.
                                It is usually sent before application crashes or other similar emergencies.
-                               at writeConsoleLogs (path/to/file:8)
+                               at main (path/to/file:10)
 ```
 
 The file logging API only differs in the way the logger is constructed.
@@ -41,15 +47,17 @@ git clone git@github.com:atalantestudio/scroll --recurse-submodules
 
 This will install the latest version of Scroll. It will also initialize the [ModuleBase](https://github.com/atalantestudio/ModuleBase) submodule, which serves as the foundation for all Atalante modules.
 
-Define the `USER_NAMESPACE` macro with your project's namespace, then include `scroll/scroll.hpp`. You will then be able to access Scroll's definitions under the provided namespace.
+Include [scroll/scroll.hpp](https://github.com/atalantestudio/scroll/tree/main/scroll/scroll.hpp). You will then be able to access the library's definitions under the `scroll` namespace.
 
 Scroll uses the following custom types for string handling:
 
-- `sequence<char8>` is a sequence of 8-bit characters allocated on the heap. Unlike [`std::string`](https://en.cppreference.com/w/cpp/string/basic_string.html), it is not resizeable.
+- `scroll::sequence<char8>` is a sequence of 8-bit characters allocated on the heap. Unlike [`std::string`](https://en.cppreference.com/w/cpp/string/basic_string.html), it is not resizeable.
   A sequence can be constructed from a C-style string or C++ string, and can also be converted to a C++ string via a [conversion operator](https://github.com/atalantestudio/ModuleBase/blob/0c524315d1f0afc3850385b1150a40501c9c6363/Base/Types/sequence.hpp#L55).  
   Sequences should be passed by reference to avoid unnecessary copies.
-- `view<char8>` is a non-owning view of a sequence of characters, like [`std::string_view`](https://en.cppreference.com/w/cpp/string/basic_string_view.html).  
+- `scroll::view<char8>` is a non-owning view of a sequence of characters, like [`std::string_view`](https://en.cppreference.com/w/cpp/string/basic_string_view.html).  
   Views should be passed by value.
+
+> [!INFO] For brevity, the `scroll` namespace is not included in the overload signatures.
 
 ## Log
 
