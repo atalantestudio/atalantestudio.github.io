@@ -2,7 +2,7 @@
 
 [View GitHub repository](https://github.com/atalantestudio/scroll)
 
-Scroll is a fast and lightweight C++ library that supports [console](#ConsoleLogger) and [file](#FileLogger) logging. It is licensed under [LGPL](https://github.com/atalantestudio/scroll/tree/main/LICENSE).
+Scroll is a fast and lightweight C++ library that supports [console](#ConsoleLogger) and [file](#FileLogger) logging. It is licensed under [MIT](https://github.com/atalantestudio/scroll/tree/main/LICENSE).
 
 Below is a minimal example that writes one log of each level to the console.
 
