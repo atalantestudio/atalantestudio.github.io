@@ -25,14 +25,12 @@ int main() {
 This produces the output below:
 
 ```log:console
-[21:06:40.082] EXAMPLE  TRACE  This is a trace log: hello 1
-                               at path/to/file:6
-[21:06:40.085] EXAMPLE  DEBUG  This log doesn't contain any formatted arguments.
-[21:06:40.086] EXAMPLE  INFO  The "INFO" log level provides useful information to the application developer.
-[21:06:40.086] EXAMPLE  WARNING  This issue is notable, but not critical.
-[21:06:40.087] EXAMPLE  ERROR  Most important log level.
-                               It is usually sent before application crashes or other similar emergencies.
-                               at main (path/to/file:10)
+[15:37:46.216459] EXAMPLE  TRACE  This is a trace log: hello 1 (at path/to/file:6)
+[15:37:46.216459] EXAMPLE  DEBUG  This log doesn't contain any formatted arguments.
+[15:37:46.216459] EXAMPLE  INFO  The "INFO" log level provides useful information to the application developer.
+[15:37:46.216459] EXAMPLE  WARNING  This issue is notable, but not critical.
+[15:37:46.216459] EXAMPLE  ERROR  Most important log level.
+                                  It is usually sent before application crashes or other similar emergencies. (in main, at path/to/file:10)
 ```
 
 The file logging API only differs in the way the logger is constructed.
@@ -128,11 +126,11 @@ Returns a string containing the formatted argument(s).
 
 ### Logger-timestamp
 
-Returns a formatted string representing the current timestamp, with millisecond precision. The timestamp follows the format `%H:%M:%S.%N`, where
+Returns a formatted string representing the current timestamp, with microsecond precision. The timestamp follows the format `%H:%M:%S.%U`, where
 - `%H` is the 24 hour clock (00-23)
 - `%M` is the minute (00-59)
 - `%S` is the second (00-59)
-- `%N` is the millisecond (000-999)
+- `%U` is the microsecond (000000-999999)
 
 <!-- Logger-timestamp -->
 
