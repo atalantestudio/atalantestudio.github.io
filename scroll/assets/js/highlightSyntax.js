@@ -5,9 +5,10 @@ export function highlightSyntax(syntax) {
 	syntax = syntax.replace(/\n/g, "<br />");
 	syntax = syntax.replace(/(?<=\<)\b(\w+)\b(?=\>)/g, "<span class='namespace'>$1</span>");
 	syntax = syntax.replace(/\b(const\b|explicit\b|operator(<<)|static\b|template\b|typename\b)/g, "<span class='keyword'>$1</span>");
-	syntax = syntax.replace(/\b(uint32|uint64|void)\b/g, "<span class='type'>$1</span>");
+	syntax = syntax.replace(/\b(void|bool)\b/g, "<span class='type'>$1</span>");
+	syntax = syntax.replace(/\b(uint8|uint16|uint32|uint64|sint8|sint16|sint32|sint64|char8|char16|char32|float32|float64)\b/g, "<span class='namespace'>$1</span>");
 	syntax = syntax.replace(/(\~?\w+\b)(?=\()/, `<span class="function">$1</span>`);
-	syntax = syntax.replace(/(&{1,2})/g, "<span class='operator'>$1</span>");
+	syntax = syntax.replace(/(\*|&{1,2})/g, "<span class='operator'>$1</span>");
 	syntax = syntax.replace(/(?<!\S)\b([A-Z]\w*?)\b(?!\()/g, "<span class='namespace'>$1</span>");
 	syntax = syntax.replace(/\b(\w+)(?=::)/g, "<span class='namespace'>$1</span>");
 	syntax = syntax.replace(/\b(\w+)(?=(<{1,2}[^/<]))/g, "<span class='namespace'>$1</span>");

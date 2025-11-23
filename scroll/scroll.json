@@ -4,28 +4,177 @@
 		{
 			"tag": "v1.0.0",
 			"commitHash": "e640473205ac07f7326bb2f8a4aa0789e1fbea82"
+		},
+		{
+			"tag": "v1.0.5",
+			"commitHash": "4b1eb1b3615bba218a846a827c3de1c2b175a24e"
 		}
 	],
 	"declarations": {
+		"operator<<": [
+			{
+				"releaseIndex": 1,
+				"syntax": "std::ostream& operator<<(std::ostream& stream, view<char8> view)",
+				"filePath": "scroll/Conversions.ipp",
+				"line": 5
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "std::ostream& operator<<(std::ostream& stream, const sequence<char8>& sequence)",
+				"filePath": "scroll/Conversions.ipp",
+				"line": 9
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "std::ostream& operator<<(std::ostream& stream, ConsoleEscapeCode code)",
+				"filePath": "scroll/Conversions.ipp",
+				"line": 13
+			}
+		],
+		"toString": [
+			{
+				"releaseIndex": 1,
+				"syntax": "template<typename Argument>\nstd::string toString(Argument argument)",
+				"filePath": "scroll/TextBuffer/TextBuffer.hpp",
+				"line": 8
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<>\nstd::string toString(bool argument)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 6
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<>\nstd::string toString(uint8 argument)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 11
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<>\nstd::string toString(uint16 argument)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 16
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<>\nstd::string toString(uint32 argument)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 21
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<>\nstd::string toString(uint64 argument)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 26
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<>\nstd::string toString(sint8 argument)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 31
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<>\nstd::string toString(sint16 argument)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 36
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<>\nstd::string toString(sint32 argument)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 41
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<>\nstd::string toString(sint64 argument)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 46
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<>\nstd::string toString(char8 argument)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 51
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<>\nstd::string toString(float32 argument)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 56
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<>\nstd::string toString(float64 argument)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 61
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<>\nstd::string toString(const char8* argument)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 66
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<>\nstd::string toString(const sequence<char8>& argument)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 71
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<>\nstd::string toString(view<char8> argument)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 76
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<>\nstd::string toString(const std::string& argument)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 81
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<>\nstd::string toString(ConsoleEscapeCode argument)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 86
+			}
+		],
 		"Logger-getArgumentInjectionPattern": [
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "static view<char8> Logger::getArgumentInjectionPattern()",
 				"filePath": "scroll/Logger/Logger.hpp",
 				"line": 12
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "static view<char8> Logger::getArgumentInjectionPattern()",
+				"filePath": "scroll/Logger/Logger.ipp",
+				"line": 11
 			}
 		],
 		"Logger-setArgumentInjectionPattern": [
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "static void Logger::setArgumentInjectionPattern(view<char8> pattern)",
 				"filePath": "scroll/Logger/Logger.hpp",
+				"line": 15
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "static void Logger::setArgumentInjectionPattern(view<char8> pattern)",
+				"filePath": "scroll/Logger/Logger.ipp",
 				"line": 15
 			}
 		],
 		"Logger-format": [
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "template<typename Argument>\nstatic sequence<char8> Logger::format(Argument&& argument)",
 				"description": "For the `Argument` template parameter, the overload `Logger& operator<<(Logger&, const Argument&)` **must** be defined.",
 				"filePath": "scroll/Logger/Logger.hpp",
@@ -33,15 +182,31 @@
 			},
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "template<typename Argument, typename... PackedArgument>\nstatic sequence<char8> Logger::format(view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
 				"description": "Uses the [argument injection patterns](#Argument injection pattern) found in `pattern` to inject each formatted argument at the right position. If there are more arguments than injection patterns, the remaining arguments are silently discarded.\n\nFor the `Argument` template parameter, the overload `Logger& operator<<(Logger&, const Argument&)` **must** be defined.\nAdditionally, for each unique `PackedArgument` template parameter different than `Argument`, the overload `Logger& operator<<(Logger&, const PackedArgument&)` **must** be defined.",
 				"filePath": "scroll/Logger/Logger.hpp",
 				"line": 21
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "static sequence<char8> Logger::format(view<char8> pattern)",
+				"description": "Returns `pattern`. Used as the endpoint of the overload below.",
+				"filePath": "scroll/Logger/Logger.hpp",
+				"line": 25
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<typename CurrentArgument, typename... Argument>\nstatic sequence<char8> Logger::format(view<char8> pattern, CurrentArgument&& argument, Argument&&... arguments)",
+				"description": "Uses the [argument injection patterns](#Argument injection pattern) found in `pattern` to inject each formatted argument at the right position. If there are more arguments than injection patterns, the remaining arguments are silently discarded.\n\nFor the `Argument` template parameter, the overload `Logger& operator<<(Logger&, const Argument&)` **must** be defined.\nAdditionally, for each unique `PackedArgument` template parameter different than `Argument`, the overload `Logger& operator<<(Logger&, const PackedArgument&)` **must** be defined.",
+				"filePath": "scroll/Logger/Logger.hpp",
+				"line": 28
 			}
 		],
 		"Logger-timestamp": [
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "static sequence<char8> Logger::timestamp()",
 				"filePath": "scroll/Logger/Logger.hpp",
 				"line": 23
@@ -50,30 +215,52 @@
 		"Logger-getMinLogLevel": [
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "LogLevel Logger::getMinLogLevel() const",
 				"filePath": "scroll/Logger/Logger.hpp",
 				"line": 36
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "LogLevel Logger::getMinLogLevel() const",
+				"filePath": "scroll/Logger/Logger.ipp",
+				"line": 31
 			}
 		],
 		"Logger-getSource": [
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "view<char8> Logger::getSource() const",
 				"filePath": "scroll/Logger/Logger.hpp",
 				"line": 38
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "view<char8> Logger::getSource() const",
+				"filePath": "scroll/Logger/Logger.ipp",
+				"line": 35
 			}
 		],
 		"ConsoleLogger-ConsoleLogger": [
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "explicit ConsoleLogger::ConsoleLogger(std::ostream& stream, LogLevel minLogLevel, view<char8> source)",
 				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
 				"line": 16
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "explicit ConsoleLogger::ConsoleLogger(std::ostream& stream, LogLevel minLogLevel, view<char8> source)",
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.ipp",
+				"line": 5
 			}
 		],
 		"ConsoleLogger-~ConsoleLogger": [
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "ConsoleLogger::~ConsoleLogger()",
 				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
 				"line": 18
@@ -82,22 +269,37 @@
 		"ConsoleLogger-getOutputStream": [
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "std::ostream& ConsoleLogger::getOutputStream()",
 				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
 				"line": 20
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "std::ostream& ConsoleLogger::getOutputStream()",
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.ipp",
+				"line": 16
 			}
 		],
 		"ConsoleLogger-setOutputStream": [
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "void ConsoleLogger::setOutputStream(std::ostream& stream)",
 				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
 				"line": 22
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "void ConsoleLogger::setOutputStream(std::ostream& stream)",
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.ipp",
+				"line": 20
 			}
 		],
 		"ConsoleLogger-operator<<": [
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "template<typename Argument>\nConsoleLogger& ConsoleLogger::operator<<(Argument&& argument)",
 				"description": "Ends the current [SGR control sequence](https://en.wikipedia.org/wiki/ANSI_escape_code#Select_Graphic_Rendition_parameters), if there is one.",
 				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
@@ -105,68 +307,139 @@
 			},
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "template<>\nConsoleLogger& ConsoleLogger::operator<<(ConsoleEscapeCode&& argument)",
 				"description": "Begins or continues an [SGR control sequence](https://en.wikipedia.org/wiki/ANSI_escape_code#Select_Graphic_Rendition_parameters).",
 				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
 				"line": 28
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<typename Argument>\nConsoleLogger& ConsoleLogger::operator<<(Argument&& argument)",
+				"description": "Ends the current [SGR control sequence](https://en.wikipedia.org/wiki/ANSI_escape_code#Select_Graphic_Rendition_parameters), if there is one.",
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.ipp",
+				"line": 25
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<>\nConsoleLogger& ConsoleLogger::operator<<(ConsoleEscapeCode&& argument)",
+				"description": "Begins or continues an [SGR control sequence](https://en.wikipedia.org/wiki/ANSI_escape_code#Select_Graphic_Rendition_parameters).",
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.ipp",
+				"line": 42
 			}
 		],
 		"ConsoleLogger-padLeft": [
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "ConsoleLogger& ConsoleLogger::padLeft(uint64 padding)",
 				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
 				"line": 30
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "ConsoleLogger& ConsoleLogger::padLeft(uint64 padding)",
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.ipp",
+				"line": 59
 			}
 		],
 		"ConsoleLogger-padRight": [
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "ConsoleLogger& ConsoleLogger::padRight(uint64 padding)",
 				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
 				"line": 32
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "ConsoleLogger& ConsoleLogger::padRight(uint64 padding)",
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.ipp",
+				"line": 65
 			}
 		],
 		"ConsoleLogger-trace": [
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "template<typename Argument>\nvoid ConsoleLogger::trace(view<char8> file, uint32 line, Argument&& argument)",
 				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
 				"line": 35
 			},
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "template<typename Argument, typename... PackedArgument>\nvoid ConsoleLogger::trace(view<char8> file, uint32 line, view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
 				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
 				"line": 38
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<typename Argument>\nvoid ConsoleLogger::trace(view<char8> file, uint64 line, Argument&& argument)",
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.ipp",
+				"line": 72
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<typename... Argument>\nvoid ConsoleLogger::trace(view<char8> file, uint64 line, view<char8> pattern, Argument&&... arguments)",
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.ipp",
+				"line": 77
 			}
 		],
 		"ConsoleLogger-debug": [
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "template<typename Argument>\nvoid ConsoleLogger::debug(Argument&& argument)",
 				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
 				"line": 41
 			},
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "template<typename Argument, typename... PackedArgument>\nvoid ConsoleLogger::debug(view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
 				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
 				"line": 44
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<typename Argument>\nvoid ConsoleLogger::debug(Argument&& argument)",
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.ipp",
+				"line": 82
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<typename... Argument>\nvoid ConsoleLogger::debug(view<char8> pattern, Argument&&... arguments)",
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.ipp",
+				"line": 87
 			}
 		],
 		"ConsoleLogger-info": [
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "template<typename Argument>\nvoid ConsoleLogger::info(Argument&& argument)",
 				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
 				"line": 47
 			},
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "template<typename Argument, typename... PackedArgument>\nvoid ConsoleLogger::info(view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
 				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
 				"line": 50
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<typename Argument>\nvoid ConsoleLogger::info(Argument&& argument)",
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.ipp",
+				"line": 92
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<typename... Argument>\nvoid ConsoleLogger::info(view<char8> pattern, Argument&&... arguments)",
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.ipp",
+				"line": 97
 			}
 		],
 		"ConsoleLogger-warning": [
@@ -181,6 +454,18 @@
 				"syntax": "template<typename Argument, typename... PackedArgument>\nvoid ConsoleLogger::warning(view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
 				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
 				"line": 56
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<typename Argument>\nvoid ConsoleLogger::warning(Argument&& argument)",
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.ipp",
+				"line": 102
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<typename... Argument>\nvoid ConsoleLogger::warning(view<char8> pattern, Argument&&... arguments)",
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.ipp",
+				"line": 107
 			}
 		],
 		"ConsoleLogger-error": [
@@ -195,84 +480,281 @@
 				"syntax": "template<typename Argument, typename... PackedArgument>\nvoid ConsoleLogger::error(view<char8> function, view<char8> file, uint32 line, view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
 				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
 				"line": 62
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<typename Argument>\nvoid ConsoleLogger::error(view<char8> function, view<char8> file, uint64 line, Argument&& argument)",
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.ipp",
+				"line": 112
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<typename... Argument>\nvoid ConsoleLogger::error(view<char8> function, view<char8> file, uint64 line, view<char8> pattern, Argument&&... arguments)",
+				"filePath": "scroll/ConsoleLogger/ConsoleLogger.ipp",
+				"line": 117
 			}
 		],
 		"FileLogger-FileLogger": [
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "explicit FileLogger::FileLogger(std::ofstream& stream, LogLevel minLogLevel, view<char8> source)",
 				"filePath": "scroll/FileLogger/FileLogger.hpp",
 				"line": 12
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "explicit FileLogger::FileLogger(std::ofstream& stream, LogLevel minLogLevel, view<char8> source)",
+				"filePath": "scroll/FileLogger/FileLogger.ipp",
+				"line": 5
 			}
 		],
 		"FileLogger-trace": [
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "template<typename Argument>\nvoid FileLogger::trace(view<char8> file, uint32 line, Argument&& argument)",
 				"filePath": "scroll/FileLogger/FileLogger.hpp",
 				"line": 15
 			},
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "template<typename Argument, typename... PackedArgument>\nvoid FileLogger::trace(view<char8> file, uint32 line, view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
 				"filePath": "scroll/FileLogger/FileLogger.hpp",
+				"line": 18
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<typename Argument>\nvoid FileLogger::trace(view<char8> file, uint64 line, Argument&& argument)",
+				"filePath": "scroll/FileLogger/FileLogger.ipp",
+				"line": 13
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<typename... Argument>\nvoid FileLogger::trace(view<char8> file, uint64 line, view<char8> pattern, Argument&&... arguments)",
+				"filePath": "scroll/FileLogger/FileLogger.ipp",
 				"line": 18
 			}
 		],
 		"FileLogger-debug": [
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "template<typename Argument>\nvoid FileLogger::debug(Argument&& argument)",
 				"filePath": "scroll/FileLogger/FileLogger.hpp",
 				"line": 21
 			},
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "template<typename Argument, typename... PackedArgument>\nvoid FileLogger::debug(view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
 				"filePath": "scroll/FileLogger/FileLogger.hpp",
 				"line": 24
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<typename Argument>\nvoid FileLogger::debug(Argument&& argument)",
+				"filePath": "scroll/FileLogger/FileLogger.ipp",
+				"line": 23
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<typename... Argument>\nvoid FileLogger::debug(view<char8> pattern, Argument&&... arguments)",
+				"filePath": "scroll/FileLogger/FileLogger.ipp",
+				"line": 28
 			}
 		],
 		"FileLogger-info": [
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "template<typename Argument>\nvoid FileLogger::info(Argument&& argument)",
 				"filePath": "scroll/FileLogger/FileLogger.hpp",
 				"line": 27
 			},
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "template<typename Argument, typename... PackedArgument>\nvoid FileLogger::info(view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
 				"filePath": "scroll/FileLogger/FileLogger.hpp",
 				"line": 30
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<typename Argument>\nvoid FileLogger::info(Argument&& argument)",
+				"filePath": "scroll/FileLogger/FileLogger.ipp",
+				"line": 33
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<typename... Argument>\nvoid FileLogger::info(view<char8> pattern, Argument&&... arguments)",
+				"filePath": "scroll/FileLogger/FileLogger.ipp",
+				"line": 38
 			}
 		],
 		"FileLogger-warning": [
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "template<typename Argument>\nvoid FileLogger::warning(Argument&& argument)",
 				"filePath": "scroll/FileLogger/FileLogger.hpp",
 				"line": 33
 			},
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "template<typename Argument, typename... PackedArgument>\nvoid FileLogger::warning(view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
 				"filePath": "scroll/FileLogger/FileLogger.hpp",
 				"line": 36
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<typename Argument>\nvoid FileLogger::warning(Argument&& argument)",
+				"filePath": "scroll/FileLogger/FileLogger.ipp",
+				"line": 43
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<typename... Argument>\nvoid FileLogger::warning(view<char8> pattern, Argument&&... arguments)",
+				"filePath": "scroll/FileLogger/FileLogger.ipp",
+				"line": 48
 			}
 		],
 		"FileLogger-error": [
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "template<typename Argument>\nvoid FileLogger::error(view<char8> function, view<char8> file, uint32 line, Argument&& argument)",
 				"filePath": "scroll/FileLogger/FileLogger.hpp",
 				"line": 39
 			},
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "template<typename Argument, typename... PackedArgument>\nvoid FileLogger::error(view<char8> function, view<char8> file, uint32 line, view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
 				"filePath": "scroll/FileLogger/FileLogger.hpp",
 				"line": 42
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<typename Argument>\nvoid FileLogger::error(view<char8> function, view<char8> file, uint64 line, Argument&& argument)",
+				"filePath": "scroll/FileLogger/FileLogger.ipp",
+				"line": 53
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "template<typename... Argument>\nvoid FileLogger::error(view<char8> function, view<char8> file, uint64 line, view<char8> pattern, Argument&&... arguments)",
+				"filePath": "scroll/FileLogger/FileLogger.ipp",
+				"line": 58
+			}
+		],
+		"TextBuffer-getText": [
+			{
+				"releaseIndex": 1,
+				"syntax": "sequence<char8> TextBuffer::getText() const",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 90
+			}
+		],
+		"TextBuffer-jump": [
+			{
+				"releaseIndex": 1,
+				"syntax": "void TextBuffer::jump(uint64 offset)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 94
+			}
+		],
+		"TextBuffer-seek": [
+			{
+				"releaseIndex": 1,
+				"syntax": "void TextBuffer::seek(uint64 offset)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 100
+			}
+		],
+		"TextBuffer-operator<<": [
+			{
+				"releaseIndex": 1,
+				"syntax": "template<typename Argument>\nTextBuffer& TextBuffer::operator<<(Argument argument)",
+				"description": "See [toString](#toString).",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 107
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "TextBuffer& TextBuffer::operator<<(char8 argument)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 113
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "TextBuffer& TextBuffer::operator<<(const sequence<char8>& argument)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 121
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "TextBuffer& TextBuffer::operator<<(const std::string& argument)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 125
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "TextBuffer& TextBuffer::operator<<(char8* argument)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 129
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "TextBuffer& TextBuffer::operator<<(const char8* argument)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 133
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "TextBuffer& TextBuffer::operator<<(view<char8> argument)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 137
+			},
+			{
+				"releaseIndex": 1,
+				"syntax": "TextBuffer& TextBuffer::operator<<(std::string_view argument)",
+				"description": "Only defined for C++17 and later.",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 145
+			}
+		],
+		"TextBuffer-padLeft": [
+			{
+				"releaseIndex": 1,
+				"syntax": "TextBuffer& TextBuffer::padLeft(view<char8> text, uint64 padding)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 150
+			}
+		],
+		"TextBuffer-padRight": [
+			{
+				"releaseIndex": 1,
+				"syntax": "TextBuffer& TextBuffer::padRight(view<char8> text, uint64 padding)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 156
+			}
+		],
+		"TextBuffer-flush": [
+			{
+				"releaseIndex": 1,
+				"syntax": "void TextBuffer::flush(std::ostream& stream)",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 164
+			}
+		],
+		"TextBuffer-clear": [
+			{
+				"releaseIndex": 1,
+				"syntax": "void TextBuffer::clear()",
+				"filePath": "scroll/TextBuffer/TextBuffer.ipp",
+				"line": 170
 			}
 		]
 	}

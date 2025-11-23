@@ -49,10 +49,10 @@ Include [scroll/scroll.hpp](https://github.com/atalantestudio/scroll/tree/main/s
 
 Scroll uses the following custom types for string handling:
 
-- `scroll::sequence<char8>` is a sequence of 8-bit characters allocated on the heap. Unlike [`std::string`](https://en.cppreference.com/w/cpp/string/basic_string.html), it is not resizeable.
-  A sequence can be constructed from a C-style string or C++ string, and can also be converted to a C++ string via a [conversion operator](https://github.com/atalantestudio/ModuleBase/blob/0c524315d1f0afc3850385b1150a40501c9c6363/Base/Types/sequence.hpp#L55).  
+- [`scroll::sequence<char8>`](https://github.com/atalantestudio/ModuleBase/blob/9133e933321726778890ef16b83eda7e00021f7f/Base/Types/sequence.hpp#L22) is a sequence of 8-bit characters allocated on the heap. Unlike [`std::string`](https://en.cppreference.com/w/cpp/string/basic_string.html), it is not resizeable.
+  A sequence can be constructed from a C-style string or C++ string, and can also be converted to a C++ string via a [conversion operator](https://github.com/atalantestudio/ModuleBase/blob/9133e933321726778890ef16b83eda7e00021f7f/Base/Types/sequence.hpp#L55).  
   Sequences should be passed by reference to avoid unnecessary copies.
-- `scroll::view<char8>` is a non-owning view of a sequence of characters, like [`std::string_view`](https://en.cppreference.com/w/cpp/string/basic_string_view.html).  
+- [`scroll::view<char8>`](https://github.com/atalantestudio/ModuleBase/blob/9133e933321726778890ef16b83eda7e00021f7f/Base/Types/view.hpp#L16) is a non-owning view of a sequence of characters, like [`std::string_view`](https://en.cppreference.com/w/cpp/string/basic_string_view.html).  
   Views should be passed by value.
 
 > [!INFO] For brevity, the `scroll` namespace is not included in the overload signatures.
@@ -61,20 +61,22 @@ Scroll uses the following custom types for string handling:
 
 A log is a message carrying information about an application's runtime status, intended for the application developer. Logs usually contain a timestamp, a log level and a text message.
 
+Logs are outputted to the [`std::clog`](https://en.cppreference.com/w/cpp/io/clog.html) output stream.
+
 ### Level
 
 Each log is associated with a log level, i.e. a way to represent the severity of the log.  
-Scroll defines 5 log levels and 2 aliases in the [LogLevel](https://github.com/atalantestudio/scroll/blob/e640473205ac07f7326bb2f8a4aa0789e1fbea82/scroll/LogLevel.hpp#L12) enum.
+Scroll defines 5 log levels and 2 aliases in the [LogLevel](https://github.com/atalantestudio/scroll/blob/4b1eb1b3615bba218a846a827c3de1c2b175a24e/scroll/LogLevel.hpp#L12) enum.
 
-| Level | Stream | Description |
-| -- | -- | -- |
-| `ALL` | | Enable all logs (alias for `TRACE`). |
-| `TRACE` | [`std::cerr`](https://en.cppreference.com/w/cpp/io/cerr.html) | Enable logs with a level greater than or equal to `TRACE`. |
-| `DEBUG` | [`std::cerr`](https://en.cppreference.com/w/cpp/io/cerr.html) | Enable logs with a level greater than or equal to `DEBUG`. |
-| `INFO` | [`std::cout`](https://en.cppreference.com/w/cpp/io/cout.html) | Enable logs with a level greater than or equal to `INFO`. |
-| `WARNING` | [`std::cerr`](https://en.cppreference.com/w/cpp/io/cerr.html) | Enable logs with a level greater than or equal to `WARNING`. This level is intended for logs that describe an anomaly but do not cause an application failure. |
-| `ERROR` | [`std::cerr`](https://en.cppreference.com/w/cpp/io/cerr.html) | Enable logs with a level greater than or equal to `ERROR`. |
-| `NONE` | | Disable all logs (alias for `ERROR`). |
+| Level | Description |
+| -- | -- |
+| `ALL` | Enable all logs (alias for `TRACE`). |
+| `TRACE` | Enable logs with a level greater than or equal to `TRACE`. |
+| `DEBUG` | Enable logs with a level greater than or equal to `DEBUG`. |
+| `INFO` | Enable logs with a level greater than or equal to `INFO`. |
+| `WARNING` | Enable logs with a level greater than or equal to `WARNING`. This level is intended for logs that describe an anomaly but do not cause an application failure. |
+| `ERROR` | Enable logs with a level greater than or equal to `ERROR`. |
+| `NONE` | Disable all logs (alias for `ERROR`). |
 
 > [!WARNING] A logger will ignore any attempt to write a log with a level below the configured minimum level.
 
@@ -93,6 +95,24 @@ This pattern is used to detect where to insert formatted arguments into a string
 By default, the argument injection pattern is `[]`. It can be replaced using [setArgumentInjectionPattern](#Logger-setArgumentInjectionPattern), but it cannot be changed on a per-logger basis.
 
 > [!INFO] The argument injection pattern isn't owned by the library and must instead be managed by the user.
+
+
+
+***
+
+
+
+### operator<<
+
+Formats the provided argument into `stream`. Returns the updated stream.
+
+<!-- operator<< -->
+
+### toString
+
+Converts and returns `argument` to a [`std::string`](https://en.cppreference.com/w/cpp/string/basic_string.html).
+
+<!-- toString -->
 
 
 
@@ -305,3 +325,71 @@ Writes an error log to the file output stream. `function`, `file` and `line` app
 See also [format](#Logger-format).
 
 <!-- FileLogger-error -->
+
+
+
+***
+
+
+
+## TextBuffer
+
+A class that represents a character buffer of size 4096.
+
+### TextBuffer-getText
+
+Returns the portion of the underlying buffer that has been written to.
+
+<!-- TextBuffer-getText -->
+
+### TextBuffer-jump
+
+Advances the write offset by `offset`.
+
+[!WARNING] The updated offset must be less than 4096.
+
+<!-- TextBuffer-jump -->
+
+### TextBuffer-seek
+
+Sets the write offset by `offset`.
+
+[!WARNING] `offset` must be less than 4096.
+
+<!-- TextBuffer-seek -->
+
+### TextBuffer-operator<<
+
+Formats and writes `argument` to the underlying buffer.
+
+Returns a reference to the text buffer.
+
+<!-- TextBuffer-operator<< -->
+
+### TextBuffer-padLeft
+
+Advances the write offset by `padding` minus the size of `text` (clamped to 0), then writes `text` to the underlying buffer.
+
+Returns a reference to the text buffer.
+
+<!-- TextBuffer-padLeft -->
+
+### TextBuffer-padRight
+
+Writes `text` to the underlying buffer, then advances the write offset by `padding` minus the size of `text` (clamped to 0).
+
+Returns a reference to the text buffer.
+
+<!-- TextBuffer-padRight -->
+
+### TextBuffer-flush
+
+Writes the portion of the underlying buffer that has been written to to `stream`, then clears the buffer.
+
+<!-- TextBuffer-flush -->
+
+### TextBuffer-clear
+
+Sets the write offset to 0.
+
+<!-- TextBuffer-clear -->

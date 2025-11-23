@@ -168,7 +168,7 @@ export function loadDocumentation(articleElement, templateElement, articleText, 
  */
 function insertDeclarationDocumentation(declarationId, documentation, node, parentNode, templateElement) {
 	// TODO
-	const currentReleaseIndex = 0;
+	const currentReleaseIndex = 1;
 
 	/**
 	 * @type {HTMLUListElement}
