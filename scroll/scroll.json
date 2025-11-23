@@ -445,12 +445,14 @@
 		"ConsoleLogger-warning": [
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "template<typename Argument>\nvoid ConsoleLogger::warning(Argument&& argument)",
 				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
 				"line": 53
 			},
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "template<typename Argument, typename... PackedArgument>\nvoid ConsoleLogger::warning(view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
 				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
 				"line": 56
@@ -471,12 +473,14 @@
 		"ConsoleLogger-error": [
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "template<typename Argument>\nvoid ConsoleLogger::error(view<char8> function, view<char8> file, uint32 line, Argument&& argument)",
 				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
 				"line": 59
 			},
 			{
 				"releaseIndex": 0,
+				"deprecationReleaseIndex": 1,
 				"syntax": "template<typename Argument, typename... PackedArgument>\nvoid ConsoleLogger::error(view<char8> function, view<char8> file, uint32 line, view<char8> pattern, Argument&& argument, PackedArgument&&... packedArguments)",
 				"filePath": "scroll/ConsoleLogger/ConsoleLogger.hpp",
 				"line": 62
